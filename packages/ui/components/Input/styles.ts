@@ -1,12 +1,12 @@
 import { css } from "@emotion/react";
-import styled from "@emotion/styled";
+import styled from "@emotion/styled/macro";
 import { AvantyTheme } from "../../types/theme";
 
 export const PlaceholderStyle = (theme: AvantyTheme) => css`
-    letter-spacing: -0.01em;
-    color: ${theme.colors.primary.medium};
-    opacity: 0.3;
-`
+  letter-spacing: -0.01em;
+  color: ${theme.colors.primary.medium};
+  opacity: 0.3;
+`;
 
 export const Fieldset = styled.fieldset`
   border-radius: 3px;
@@ -25,14 +25,14 @@ export const Fieldset = styled.fieldset`
 
   &:hover {
     border-color: ${({ theme }) => theme.colors.accent["extra-light"]};
-    box-shadow:  ${({ theme }) =>
-      theme.colors.accent["extra-light"]} 0px 0px 0px 1px inset;
+    box-shadow: ${({ theme }) => theme.colors.accent["extra-light"]} 0px 0px 0px
+      1px inset;
   }
 
   &:focus-within {
     border-color: ${({ theme }) => theme.colors.accent.light};
-    box-shadow:  ${({ theme }) =>
-      theme.colors.accent.light} 0px 0px 0px 1px inset;
+    box-shadow: ${({ theme }) => theme.colors.accent.light} 0px 0px 0px 1px
+      inset;
   }
 `;
 export const Label = styled.label`

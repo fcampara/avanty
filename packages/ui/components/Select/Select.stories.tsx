@@ -13,7 +13,7 @@ Primary.args = {
   placeholder: "Got a code?",
   label: "Coupon",
   options: [
-    { label: 'Option 1', value: '1'},
-    { label: 'Option 2', value: '2'}
-  ]
+    { label: "Option 1", value: "1" },
+    { label: "Option 2", value: "2" },
+  ],
 };
