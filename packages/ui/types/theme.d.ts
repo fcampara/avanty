@@ -1,5 +1,7 @@
 type BreakpointSizes = "xs" | "sm" | "md" | "lg" | "xl";
 
+type TypographyWeights = "regular" | "light" | "semi-bold";
+
 type ColorPaths = "primary" | "netraul";
 
 type Breakpoints = {
@@ -13,6 +15,7 @@ type ColorPrimary = {
 };
 
 type ColorNeutral = {
+  transparent: string;
   black: string;
   white: string;
 };
@@ -21,6 +24,13 @@ export type AvantyTheme = {
   breakpoints: Breakpoints;
   colors: {
     primary: ColorPrimary;
-    neutral: COlorNeutral;
+    neutral: ColorNeutral;
   };
+  typography: {
+    fontFamily: string;
+    weight: {
+      [k in TypographyWeights]: string;
+    };
+  };
+  spacing: any;
 };
