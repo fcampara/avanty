@@ -1,4 +1,12 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import { AvantyTheme } from "../../types/theme";
+
+export const PlaceholderStyle = (theme: AvantyTheme) => css`
+    letter-spacing: -0.01em;
+    color: ${theme.colors.primary.medium};
+    opacity: 0.3;
+`
 
 export const Fieldset = styled.fieldset`
   border-radius: 3px;
@@ -47,8 +55,6 @@ export const Input = styled.input`
   padding: 0;
 
   &::placeholder {
-    letter-spacing: -0.01em;
-    color: ${({ theme }) => theme.colors.primary.medium};
-    opacity: 0.3;
+    ${({ theme }) => PlaceholderStyle(theme)}
   }
 `;
