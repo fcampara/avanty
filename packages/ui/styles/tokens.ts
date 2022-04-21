@@ -10,11 +10,13 @@ const tokens: AvantyTheme = {
   },
   colors: {
     accent: {
+      "extra-light": "#D1EFF2",
+      light: "#A3DFE6",
       medium: "#53C3D0",
     },
     primary: {
-      light: "#1C5D9F",
       "extra-light": "#E8EFF5",
+      light: "#1C5D9F",
       medium: "#022B54",
     },
     neutral: {

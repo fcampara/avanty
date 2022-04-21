@@ -28,5 +28,3 @@ export const Link = styled.a`
     bottom: -6px;
   }
 `;
-
-export const Active = styled.hr``;

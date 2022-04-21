@@ -6,6 +6,12 @@ export const reset = css`
     font-family: Source Sans Pro;
   }
 
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   button,
   input,
   optgroup,

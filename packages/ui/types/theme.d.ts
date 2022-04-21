@@ -17,6 +17,8 @@ type ColorPrimary = {
 };
 
 type ColorAccent = {
+  light: string;
+  "extra-light": string;
   medium: string;
 };
 

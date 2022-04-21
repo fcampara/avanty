@@ -53,7 +53,6 @@ export const Button = styled.button<ButtonStyleProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box;
   border-radius: 3px;
   height: 36px;
   cursor: pointer;
