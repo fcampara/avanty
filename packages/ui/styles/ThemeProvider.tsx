@@ -13,8 +13,8 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     <>
       <Global
         styles={css`
-        ${font}
-        ${reset}
+          ${font}
+          ${reset}
         `}
       />
       <EmotionThemeProvider theme={tokens}>{children}</EmotionThemeProvider>

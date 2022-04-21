@@ -4,6 +4,8 @@ type TypographyWeights = "regular" | "light" | "semi-bold";
 
 type ColorPaths = "primary" | "netraul";
 
+type MotionVelocity = "fast";
+
 type Breakpoints = {
   [k in BreakpointSizes]: string;
 };
@@ -11,6 +13,10 @@ type Breakpoints = {
 type ColorPrimary = {
   light: string;
   "extra-light": string;
+  medium: string;
+};
+
+type ColorAccent = {
   medium: string;
 };
 
@@ -24,6 +30,7 @@ export type AvantyTheme = {
   breakpoints: Breakpoints;
   colors: {
     primary: ColorPrimary;
+    accent: ColorAccent;
     neutral: ColorNeutral;
   };
   typography: {
@@ -32,5 +39,9 @@ export type AvantyTheme = {
       [k in TypographyWeights]: string;
     };
   };
-  spacing: any;
+  motion: {
+    velocity: {
+      [k in MotionVelocity]: string;
+    };
+  };
 };
