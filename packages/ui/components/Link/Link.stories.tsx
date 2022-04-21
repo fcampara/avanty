@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { lorem } from "faker/locale/pt_BR";
 import Link from "./Link";
 
 export default {
@@ -9,4 +10,6 @@ export default {
 const Template: ComponentStory<typeof Link> = (args) => <Link {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  children: lorem.word()
+};
