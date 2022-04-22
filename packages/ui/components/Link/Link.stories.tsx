@@ -11,5 +11,5 @@ const Template: ComponentStory<typeof Link> = (args) => <Link {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  children: lorem.word()
+  children: lorem.word(),
 };

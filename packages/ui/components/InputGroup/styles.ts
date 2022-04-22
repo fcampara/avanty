@@ -13,11 +13,12 @@ export const Wrapper = styled.div`
     z-index: 1;
   }
 
-   ${StyledInput.Fieldset} {
-     &:focus-within:after, &:hover:after {
-       display: none;
-     }
-   }
+  ${StyledInput.Fieldset} {
+    &:focus-within:after,
+    &:hover:after {
+      display: none;
+    }
+  }
 
   & > ${StyledInput.Fieldset}:not(:nth-last-of-type(1)) {
     &:after {
