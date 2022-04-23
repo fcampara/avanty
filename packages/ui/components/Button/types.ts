@@ -8,4 +8,4 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize
 }
 
-type ButtonStyleProps = Pick<ButtonProps, "variant" | "size">
+export type ButtonStyleProps = Pick<ButtonProps, "variant" | "size">
