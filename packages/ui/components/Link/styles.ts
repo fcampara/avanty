@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "@emotion/styled"
 
 export const Link = styled.a`
   font-style: normal;
@@ -27,4 +27,4 @@ export const Link = styled.a`
     border-radius: 1px;
     bottom: -6px;
   }
-`;
+`

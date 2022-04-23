@@ -1,11 +1,11 @@
-import { keyframes } from "@emotion/react";
-import styled from "@emotion/styled";
+import { keyframes } from "@emotion/react"
+import styled from "@emotion/styled"
 
 const shimmer = keyframes`
     100% {
       transform: translateX(100%);
     }
-`;
+`
 
 export const Skeleton = styled.span`
   display: inline-block;
@@ -31,4 +31,4 @@ export const Skeleton = styled.span`
     animation: ${shimmer} 2s infinite;
     content: "";
   }
-`;
+`

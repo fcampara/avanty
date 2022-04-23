@@ -1,9 +1,9 @@
-import { forwardRef, ForwardRefRenderFunction } from "react";
-import { IconSVG } from "../types/icons";
+import { forwardRef, ForwardRefRenderFunction } from "react"
+import { IconSVG } from "../types/icons"
 
 const ChevronUp: ForwardRefRenderFunction<SVGElement, IconSVG> = (
   props,
-  ref
+  ref,
 ) => (
   <svg
     ref={ref}
@@ -22,6 +22,6 @@ const ChevronUp: ForwardRefRenderFunction<SVGElement, IconSVG> = (
       fill="#022B54"
     />
   </svg>
-);
+)
 
-export default forwardRef(ChevronUp);
+export default forwardRef(ChevronUp)

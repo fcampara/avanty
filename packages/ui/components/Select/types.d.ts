@@ -1,11 +1,11 @@
-import { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes } from "react"
 
 type SelectOption = {
-  label: string;
-  value: string;
-};
+  label: string
+  value: string
+}
 
 export interface SelectProps extends InputHTMLAttributes<HTMLSelectElement> {
-  label?: string;
-  options?: SelectOption[];
+  label?: string
+  options?: SelectOption[]
 }

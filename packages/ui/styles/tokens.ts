@@ -1,4 +1,4 @@
-import { AvantyTheme } from "../types/theme";
+import { AvantyTheme } from "../types/theme"
 
 const tokens: AvantyTheme = {
   breakpoints: {
@@ -38,6 +38,6 @@ const tokens: AvantyTheme = {
       fast: "0.175s",
     },
   },
-};
+}
 
-export default tokens;
+export default tokens

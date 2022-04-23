@@ -1,15 +1,15 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { lorem } from "faker/locale/pt_BR";
-import Link from "./Link";
+import { ComponentStory, ComponentMeta } from "@storybook/react"
+import { lorem } from "faker/locale/pt_BR"
+import Link from "./Link"
 
 export default {
   title: "Example/Link",
   component: Link,
-} as ComponentMeta<typeof Link>;
+} as ComponentMeta<typeof Link>
 
-const Template: ComponentStory<typeof Link> = (args) => <Link {...args} />;
+const Template: ComponentStory<typeof Link> = args => <Link {...args} />
 
-export const Primary = Template.bind({});
+export const Primary = Template.bind({})
 Primary.args = {
   children: lorem.word(),
-};
+}

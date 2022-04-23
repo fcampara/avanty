@@ -1,1 +1,1 @@
-export { Skeleton } from "./styles";
+export { Skeleton } from "./styles"

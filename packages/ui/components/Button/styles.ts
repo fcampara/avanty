@@ -1,7 +1,7 @@
-import { css, SerializedStyles } from "@emotion/react";
-import styled from "@emotion/styled";
-import { AvantyTheme } from "../../types/theme";
-import { ButtonStyleProps, ButtonVariant } from "./types";
+import { css, SerializedStyles } from "@emotion/react"
+import styled from "@emotion/styled"
+import { AvantyTheme } from "../../types/theme"
+import { ButtonStyleProps, ButtonVariant } from "./types"
 
 const Sizes = {
   small: css`
@@ -10,10 +10,10 @@ const Sizes = {
   medium: css`
     padding: 8px 40px;
   `,
-};
+}
 
 const Variant: {
-  [k in ButtonVariant]: (theme: AvantyTheme) => SerializedStyles;
+  [k in ButtonVariant]: (theme: AvantyTheme) => SerializedStyles
 } = {
   outlined: (theme: AvantyTheme) => css`
     background-color: ${theme.colors.neutral.transparent};
@@ -45,7 +45,7 @@ const Variant: {
       color: ${theme.colors.primary.medium};
     }
   `,
-};
+}
 
 export const Button = styled.button<ButtonStyleProps>`
   font-weight: ${({ theme }) => theme.typography.weight["semi-bold"]};
@@ -61,4 +61,4 @@ export const Button = styled.button<ButtonStyleProps>`
 
   ${({ size }) => size && Sizes[size]}
   ${({ theme, variant }) => variant && Variant[variant](theme)}
-`;
+`

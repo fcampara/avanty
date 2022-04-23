@@ -1,2 +1,2 @@
-export { default } from "./InputGroup";
-export * from "./types";
+export { default } from "./InputGroup"
+export * from "./types"

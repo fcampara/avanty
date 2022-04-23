@@ -1,9 +1,9 @@
-import { css } from "@emotion/react";
-import tokens from "./tokens";
-const fontFamily = tokens.typography.fontFamily;
-import SourceSansProLight from "../fonts/SourceSansPro-Light.ttf";
-import SourceSansProRegular from "../fonts/SourceSansPro-Regular.ttf";
-import SourceSansProSemiBold from "../fonts/SourceSansPro-SemiBold.ttf";
+import { css } from "@emotion/react"
+import tokens from "./tokens"
+const fontFamily = tokens.typography.fontFamily
+import SourceSansProLight from "../fonts/SourceSansPro-Light.ttf"
+import SourceSansProRegular from "../fonts/SourceSansPro-Regular.ttf"
+import SourceSansProSemiBold from "../fonts/SourceSansPro-SemiBold.ttf"
 
 export const font = css`
   @font-face {
@@ -23,4 +23,4 @@ export const font = css`
     src: url("${SourceSansProSemiBold}") format("truetype");
     font-weight: 600;
   }
-`;
+`

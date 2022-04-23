@@ -1,5 +1,5 @@
-import styled from "@emotion/styled/macro";
-import * as StyledInput from "../Input/styles";
+import styled from "@emotion/styled/macro"
+import * as StyledInput from "../Input/styles"
 
 export const Wrapper = styled.div`
   display: flex;
@@ -49,7 +49,7 @@ export const Wrapper = styled.div`
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
-`;
+`
 
 export const Fieldset = styled.div`
   z-index: 0;
@@ -64,4 +64,4 @@ export const Fieldset = styled.div`
   padding: 0;
   border-width: 1px;
   min-width: 0%;
-`;
+`

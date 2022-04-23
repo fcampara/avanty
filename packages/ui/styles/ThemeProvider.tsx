@@ -2,11 +2,11 @@ import {
   css,
   Global,
   ThemeProvider as EmotionThemeProvider,
-} from "@emotion/react";
-import { font } from "./font";
-import { reset } from "./reset";
-import tokens from "./tokens";
-import { ThemeProviderProps } from "./types";
+} from "@emotion/react"
+import { font } from "./font"
+import { reset } from "./reset"
+import tokens from "./tokens"
+import { ThemeProviderProps } from "./types"
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   return (
@@ -19,5 +19,5 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
       />
       <EmotionThemeProvider theme={tokens}>{children}</EmotionThemeProvider>
     </>
-  );
-};
+  )
+}

@@ -1,5 +1,5 @@
-import { forwardRef, ForwardRefRenderFunction } from "react";
-import { IconSVG } from "../types/icons";
+import { forwardRef, ForwardRefRenderFunction } from "react"
+import { IconSVG } from "../types/icons"
 
 const Pool: ForwardRefRenderFunction<SVGElement, IconSVG> = (props, ref) => (
   <svg
@@ -29,6 +29,6 @@ const Pool: ForwardRefRenderFunction<SVGElement, IconSVG> = (props, ref) => (
       stroke="#022B54"
     />
   </svg>
-);
+)
 
-export default forwardRef(Pool);
+export default forwardRef(Pool)

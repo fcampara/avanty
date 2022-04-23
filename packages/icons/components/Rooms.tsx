@@ -1,5 +1,5 @@
-import { forwardRef, ForwardRefRenderFunction } from "react";
-import { IconSVG } from "../types/icons";
+import { forwardRef, ForwardRefRenderFunction } from "react"
+import { IconSVG } from "../types/icons"
 
 const Rooms: ForwardRefRenderFunction<SVGElement, IconSVG> = (props, ref) => (
   <svg
@@ -15,6 +15,6 @@ const Rooms: ForwardRefRenderFunction<SVGElement, IconSVG> = (props, ref) => (
     <path d="M17 17.5H5" stroke="#022B54" />
     <path d="M14.5 18V6.5H7.5V18" stroke="#022B54" />
   </svg>
-);
+)
 
-export default forwardRef(Rooms);
+export default forwardRef(Rooms)

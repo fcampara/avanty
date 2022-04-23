@@ -1,12 +1,12 @@
-import { forwardRef, ForwardRefRenderFunction } from "react";
-import * as Styled from "./styles";
-import { SelectProps } from "./types";
+import { forwardRef, ForwardRefRenderFunction } from "react"
+import * as Styled from "./styles"
+import { SelectProps } from "./types"
 
 const Select: ForwardRefRenderFunction<HTMLSelectElement, SelectProps> = (
   props,
-  ref
+  ref,
 ) => {
-  const { children, label, options, placeholder, ...restProps } = props;
+  const { label, options, placeholder, ...restProps } = props
   return (
     <Styled.Fieldset>
       <Styled.Label>{label}</Styled.Label>
@@ -20,11 +20,13 @@ const Select: ForwardRefRenderFunction<HTMLSelectElement, SelectProps> = (
           {placeholder}
         </option>
         {options?.map(({ label, value }) => (
-          <option value={value}>{label}</option>
+          <option key={value} value={value}>
+            {label}
+          </option>
         ))}
       </Styled.Select>
     </Styled.Fieldset>
-  );
-};
+  )
+}
 
-export default forwardRef(Select);
+export default forwardRef(Select)

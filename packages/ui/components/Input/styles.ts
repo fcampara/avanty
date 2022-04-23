@@ -1,12 +1,12 @@
-import { css } from "@emotion/react";
-import styled from "@emotion/styled/macro";
-import { AvantyTheme } from "../../types/theme";
+import { css } from "@emotion/react"
+import styled from "@emotion/styled/macro"
+import { AvantyTheme } from "../../types/theme"
 
 export const PlaceholderStyle = (theme: AvantyTheme) => css`
   letter-spacing: -0.01em;
   color: ${theme.colors.primary.medium};
   opacity: 0.3;
-`;
+`
 
 export const Fieldset = styled.fieldset`
   border-radius: 3px;
@@ -34,7 +34,7 @@ export const Fieldset = styled.fieldset`
     box-shadow: ${({ theme }) => theme.colors.accent.light} 0px 0px 0px 1px
       inset;
   }
-`;
+`
 export const Label = styled.label`
   line-height: 13px;
   font-size: 11px;
@@ -42,7 +42,7 @@ export const Label = styled.label`
   cursor: text;
   outline: none;
   color: ${({ theme }) => theme.colors.accent.medium};
-`;
+`
 
 export const Input = styled.input`
   font-style: normal;
@@ -57,4 +57,4 @@ export const Input = styled.input`
   &::placeholder {
     ${({ theme }) => PlaceholderStyle(theme)}
   }
-`;
+`

@@ -1,3 +1,3 @@
-import { HTMLAttributes } from "react";
+import { HTMLAttributes } from "react"
 
-export interface InputGroupProps extends HTMLAttributes<HTMLDivElement> {}
+export type InputGroupProps = HTMLAttributes<HTMLDivElement>
