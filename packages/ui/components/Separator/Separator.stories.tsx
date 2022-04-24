@@ -6,7 +6,9 @@ export default {
   component: Separator,
 } as ComponentMeta<typeof Separator>
 
-const Template: ComponentStory<typeof Separator> = args => <Separator {...args} />
+const Template: ComponentStory<typeof Separator> = args => (
+  <Separator {...args} />
+)
 
 export const Primary = Template.bind({})
 Primary.args = {}
