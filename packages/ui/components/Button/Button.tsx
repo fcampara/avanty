@@ -8,13 +8,14 @@ const Button: ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
 ) => {
   const {
     children,
+    color,
     size = "medium",
     variant = "outlined",
     ...restProps
   } = props
 
   return (
-    <Styled.Button size={size} variant={variant} {...restProps} ref={ref}>
+    <Styled.Button color={color} size={size} variant={variant} {...restProps} ref={ref}>
       {children}
     </Styled.Button>
   )
