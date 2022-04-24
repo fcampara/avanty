@@ -1,10 +1,7 @@
 import { forwardRef, ForwardRefRenderFunction } from "react"
 import { IconSVG } from "../types/icons"
 
-const Logo: ForwardRefRenderFunction<SVGElement, IconSVG> = (
-  props,
-  ref,
-) => (
+const Logo: ForwardRefRenderFunction<SVGElement, IconSVG> = (props, ref) => (
   <svg
     ref={ref}
     width="28"
