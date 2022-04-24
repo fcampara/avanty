@@ -9,9 +9,7 @@ interface PageHomeProps {
 }
 
 const PageHome: NextPage<PageHomeProps> = props => {
-  return (
-    <ListHomes {...props}/>
-  )
+  return <ListHomes {...props} />
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {

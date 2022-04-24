@@ -1,6 +1,8 @@
 import { InputGroup, InputSelect, Input, Link, Button } from "ui"
 import * as Styled from "./styles"
 import { ChevronDown, LogoText } from "icons"
+import { useRegions } from "../../hooks/useRegions"
+import { useMemo } from "react"
 
 const ORDERS = [
   { label: "Relevance", value: "relevance" },
@@ -9,6 +11,16 @@ const ORDERS = [
 ]
 
 const Header = () => {
+  const { data } = useRegions()
+
+  const regions = useMemo(() => {
+    if (!data?.regions) return []
+    return data.regions.map(({ name, id, stateName  }) => ({
+      label: `${name}, ${stateName}`,
+      value: id
+    }))
+  }, [data])
+
   return (
     <Styled.Header>
       <Styled.Top>
@@ -31,7 +43,7 @@ const Header = () => {
       </Styled.Top>
       <Styled.Form>
         <InputGroup>
-          <InputSelect label="Where" />
+          <InputSelect label="Where" options={regions}/>
           <Input id="when" label="When" multiple type="date" />
           <Input
             id="who"

@@ -14,3 +14,9 @@ export interface Home {
   maxOccupancy: number
   photos: HomePhoto[]
 }
+
+export interface HomeResults {
+  homes: {
+    results: Home[]
+  }
+}
