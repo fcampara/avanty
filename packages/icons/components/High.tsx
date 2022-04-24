@@ -11,14 +11,12 @@ const High: ForwardRefRenderFunction<SVGElement, IconSVG> = (props, ref) => (
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <g opacity="0.3">
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M11.7067 7.49577L8.00154 4.19995L4.29492 7.49561L4.95939 8.24293L7.5 5.984V12.5359H8.5V5.98171L11.0421 8.24294L11.7067 7.49577Z"
-        fill="#022B54"
-      />
-    </g>
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M11.7067 7.49577L8.00154 4.19995L4.29492 7.49561L4.95939 8.24293L7.5 5.984V12.5359H8.5V5.98171L11.0421 8.24294L11.7067 7.49577Z"
+      fill="#022B54"
+    />
   </svg>
 )
 
