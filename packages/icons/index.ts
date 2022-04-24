@@ -1,4 +1,4 @@
-export { default as BathSVG } from "./components/Bath"
+export { default as Bath } from "./components/Bath"
 export { default as ChevronDown } from "./components/ChevronDown"
 export { default as ChevronUp } from "./components/ChevronUp"
 export { default as High } from "./components/High"
