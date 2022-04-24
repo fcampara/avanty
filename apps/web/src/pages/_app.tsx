@@ -3,7 +3,7 @@ import { ApolloProvider } from "@apollo/client"
 import { ThemeProvider } from "ui/styles"
 import { Global, css } from "@emotion/react"
 import { useApollo } from "../services/graphql/apollo"
-import Header from "../components/Header"
+
 const fontFamily = "Source Sans Pro"
 const GlobalStyle = css`
   @font-face {
@@ -25,14 +25,13 @@ const GlobalStyle = css`
   }
 `
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps) {
   const client = useApollo(pageProps.initializeApoloState)
 
   return (
     <ApolloProvider client={client}>
       <ThemeProvider>
         <Global styles={GlobalStyle} />
-        <Header />
         {/** @ts-expect-error Multiple posibilities */}
         <Component {...pageProps} />
       </ThemeProvider>

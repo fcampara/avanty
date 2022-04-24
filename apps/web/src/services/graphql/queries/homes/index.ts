@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client"
 
 export const QUERY_HOMES = gql`
-  {
-    homes {
+  query QueryHomes($region: UUID) {
+    homes(region: $region) {
       results {
         id
         title

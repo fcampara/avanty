@@ -1,8 +1,9 @@
 import { InputGroup, InputSelect, Input, Link, Button } from "ui"
 import * as Styled from "./styles"
 import { ChevronDown, LogoText } from "icons"
-import { useRegions } from "../../hooks/useRegions"
 import { useMemo } from "react"
+import { useSearch } from "../../context/Search/provider"
+import { useRouter } from "next/router"
 
 const ORDERS = [
   { label: "Relevance", value: "relevance" },
@@ -11,15 +12,15 @@ const ORDERS = [
 ]
 
 const Header = () => {
-  const { data } = useRegions()
+  const { onChangeFilter, regions } = useSearch()
+  const { query } = useRouter()
 
-  const regions = useMemo(() => {
-    if (!data?.regions) return []
-    return data.regions.map(({ name, id, stateName  }) => ({
+  const formattedRegions = useMemo(() => {
+    return regions?.map(({ name, stateName }) => ({
       label: `${name}, ${stateName}`,
-      value: id
+      value: name,
     }))
-  }, [data])
+  }, [regions])
 
   return (
     <Styled.Header>
@@ -43,7 +44,12 @@ const Header = () => {
       </Styled.Top>
       <Styled.Form>
         <InputGroup>
-          <InputSelect label="Where" options={regions}/>
+          <InputSelect
+            label="Where"
+            defaultValue={query.regionName}
+            options={formattedRegions}
+            onChange={onChangeFilter}
+          />
           <Input id="when" label="When" multiple type="date" />
           <Input
             id="who"
