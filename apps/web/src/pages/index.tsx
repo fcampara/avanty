@@ -1,24 +1,16 @@
-/* eslint-disable react/prop-types */
-import Header from "../components/Header"
-import CardPrice from "../components/CardPrice"
 import { QUERY_HOMES, HomeResults } from "../services/graphql/queries/homes"
 import { initializeApollo } from "../services/graphql/apollo"
 import { GetServerSideProps, NextPage } from "next"
 import { Home } from "../services/graphql/queries/homes/types"
+import ListHomes from "../components/ListHomes"
 
 interface PageHomeProps {
   homes: Home[]
 }
 
 const PageHome: NextPage<PageHomeProps> = props => {
-  const { homes } = props
   return (
-    <div>
-      <Header />
-      {homes.map(home => (
-        <CardPrice key={home.id} {...home} />
-      ))}
-    </div>
+    <ListHomes {...props}/>
   )
 }
 

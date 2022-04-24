@@ -37,7 +37,7 @@ export const Amenities = styled.ul`
     opacity: 0.3;
   }
 `
-export const Card = styled.section`
+export const Card = styled.li`
   display: flex;
 `
 

@@ -12,6 +12,7 @@ const plugins = [
 ]
 
 const nextConfig = {
+  basePath: "/homes",
   images: {
     domains: ["imglite.avantstay.com"],
   },

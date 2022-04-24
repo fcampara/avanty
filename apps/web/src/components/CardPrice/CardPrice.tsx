@@ -4,6 +4,7 @@ import { Rooms, Bath, User, Pool } from "icons"
 import PriceDetail from "../PriceDetail"
 import { Separator } from "ui"
 import { Home } from "../../services/graphql/queries/homes/types"
+import { memo } from "react"
 
 const CardPrice = (props: Home) => {
   const {
@@ -59,4 +60,4 @@ const CardPrice = (props: Home) => {
   )
 }
 
-export default CardPrice
+export default memo(CardPrice)
