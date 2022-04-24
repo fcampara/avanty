@@ -3,44 +3,56 @@ import * as Styled from "./styles"
 import { Rooms, Bath, User, Pool } from "icons"
 import PriceDetail from "../PriceDetail"
 import { Separator } from "ui"
+import { Home } from "../../services/graphql/queries/homes/types"
 
-const CardPrice = () => {
+const CardPrice = (props: Home) => {
+  const {
+    bathroomsCount,
+    maxOccupancy,
+    roomsCount,
+    photos,
+    title,
+    cityName,
+    stateCode,
+    regionName,
+    hasPool,
+  } = props
   return (
     <Styled.Card>
-      <Image
-        width={360}
-        height={208}
-        src="https://imglite.avantstay.com/homes/db5dd92d-51c1-11ea-aff7-8d6278492f66/images/original_156505293.jpeg"
-      />
+      <Image width={360} height={208} src={photos[0].url} />
       <Styled.CardDetail>
         <div className="av-card__container">
           <Styled.RegionWrapper>
-            <Styled.Region>Coachella Valley</Styled.Region>{" "}
+            <Styled.Region>{regionName}</Styled.Region>
             <Separator color="accent" />
-            <Styled.Region>Palm Springs, CA</Styled.Region>
+            <Styled.Region>
+              {cityName}, {stateCode}
+            </Styled.Region>
           </Styled.RegionWrapper>
-          <Styled.Title>Paradise Valley</Styled.Title>
+          <Styled.Title>{title}</Styled.Title>
           <Styled.Amenities>
             <li>
               <Rooms />
-              12 Bedrooms
+              {roomsCount} Bedrooms
             </li>
             <li>
               <Bath />
-              12 Bathrooms
+              {bathroomsCount} Bathrooms
             </li>
-            <li>
-              <Pool />
-              Pool
-            </li>
+            {hasPool && (
+              <li>
+                <Pool />
+                Pool
+              </li>
+            )}
             <li>
               <User />
-              12 Guests
+              {maxOccupancy} Guests
             </li>
           </Styled.Amenities>
         </div>
         <div>
-          <PriceDetail nights={8} perNight={500} price={5000} />
+          <PriceDetail />
         </div>
       </Styled.CardDetail>
     </Styled.Card>

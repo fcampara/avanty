@@ -7,6 +7,7 @@ import PriceDetailPerNight from "./PerNight"
 
 const PriceDetail = (props: PriceDetailSeasonProps) => {
   const { nights, season, price, perNight } = props
+  const showPerNight = !nights && !season && !price && !perNight
 
   return (
     <Styled.PriceDetail>
@@ -15,7 +16,7 @@ const PriceDetail = (props: PriceDetailSeasonProps) => {
         <PriceDetailSeason season={season} />
       </Styled.Information>
       <PriceDetailAmount price={price} />
-      <PriceDetailPerNight perNight={perNight} />
+      {!showPerNight && <PriceDetailPerNight perNight={perNight} />}
     </Styled.PriceDetail>
   )
 }

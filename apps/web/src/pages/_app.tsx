@@ -1,6 +1,8 @@
 import type { AppProps } from "next/app"
+import { ApolloProvider } from "@apollo/client"
 import { ThemeProvider } from "ui/styles"
 import { Global, css } from "@emotion/react"
+import { useApollo } from "../services/graphql/apollo"
 const fontFamily = "Source Sans Pro"
 const GlobalStyle = css`
   @font-face {
@@ -23,11 +25,15 @@ const GlobalStyle = css`
 `
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  const client = useApollo(pageProps.initializeApoloState)
+
   return (
-    <ThemeProvider>
-      <Global styles={GlobalStyle} />
-      {/** @ts-expect-error Multiple posibilities */}
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <ApolloProvider client={client}>
+      <ThemeProvider>
+        <Global styles={GlobalStyle} />
+        {/** @ts-expect-error Multiple posibilities */}
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </ApolloProvider>
   )
 }
