@@ -1,6 +1,7 @@
 import styled from "@emotion/styled"
 import * as StyledInput from "../Input/styles"
 
+export const SelectClassname = "avanty-select"
 export const Fieldset = styled(StyledInput.Fieldset)``
 export const Label = styled(StyledInput.Label)`
   cursor: pointer;

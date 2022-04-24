@@ -1,6 +1,8 @@
 import { css } from "@emotion/react"
-import styled from "@emotion/styled/macro"
+import styled from "@emotion/styled"
 import { AvantyTheme } from "../../types/theme"
+
+export const InputClassname = "avanty-input"
 
 export const PlaceholderStyle = (theme: AvantyTheme) => css`
   letter-spacing: -0.01em;
