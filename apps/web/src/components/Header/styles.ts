@@ -9,6 +9,9 @@ export const Header = styled.header`
   background-color: ${({ theme }) => theme.colors.neutral.white};
   box-shadow: 4px 8px 40px rgba(227, 230, 234, 0.3);
   padding: 14px 80px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 `
 
 export const Top = styled.div`
