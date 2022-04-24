@@ -10,10 +10,8 @@ export interface PriceDetailSeasonArrowProps {
 }
 
 export interface PriceDetailSeasonProps {
-  range?: PriceRange
   price?: number | number[]
   perNight?: number
   nights?: number
-  subtitle?: string
   season?: PriceDetailSeason
 }

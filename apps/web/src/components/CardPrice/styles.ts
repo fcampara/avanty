@@ -14,7 +14,6 @@ export const Title = styled.h4`
 export const RegionWrapper = styled.div`
   display: flex;
   align-items: center;
-  grid-gap: 6px;
 `
 
 export const Region = styled.span`
@@ -23,16 +22,6 @@ export const Region = styled.span`
   letter-spacing: -0.01em;
   color: ${({ theme }) => theme.colors.accent.medium};
 `
-
-export const Separator = styled.hr`
-  width: 3px;
-  height: 3px;
-  margin: 0;
-  border: none;
-  border-radius: 50%;
-  background-color: ${({ theme }) => theme.colors.accent.medium};
-`
-
 export const Amenities = styled.ul`
   margin: 0;
   padding: 0;
@@ -41,6 +30,7 @@ export const Amenities = styled.ul`
   grid-gap: 21px;
 
   & > li {
+    font-size: 12px;
     display: flex;
     align-items: center;
     color: ${({ theme }) => theme.colors.primary.medium};
@@ -53,4 +43,7 @@ export const Card = styled.section`
 
 export const CardDetail = styled.div`
   padding: 20px 30px 17px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
