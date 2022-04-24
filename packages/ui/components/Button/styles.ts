@@ -33,7 +33,7 @@ const Colors: {
       &:active {
         color: ${theme.colors.primary.medium};
       }
-    `
+    `,
   },
   primary: {
     outlined: (theme: AvantyTheme) => css`
@@ -60,8 +60,8 @@ const Colors: {
       &:active {
         color: ${theme.colors.primary.medium};
       }
-    `
-  }
+    `,
+  },
 }
 
 const Sizes = {
@@ -74,7 +74,10 @@ const Sizes = {
 }
 
 const Variant: {
-  [k in ButtonVariant]: (theme: AvantyTheme, color: ButtonColor) => SerializedStyles
+  [k in ButtonVariant]: (
+    theme: AvantyTheme,
+    color: ButtonColor,
+  ) => SerializedStyles
 } = {
   outlined: (theme: AvantyTheme, color: ButtonColor) => css`
     background-color: ${theme.colors.neutral.transparent};
@@ -104,5 +107,6 @@ export const Button = styled.button<ButtonStyleProps>`
     `color ${theme.motion.velocity.fast}, border-color ${theme.motion.velocity.fast}`};
 
   ${({ size }) => size && Sizes[size]}
-  ${({ theme, variant, color = "primary" }) => variant && Variant[variant](theme, color)}
+  ${({ theme, variant, color = "primary" }) =>
+    variant && Variant[variant](theme, color)}
 `

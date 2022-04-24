@@ -13,7 +13,7 @@ const tokens: AvantyTheme = {
       "extra-light": "#D1EFF2",
       light: "#A3DFE6",
       medium: "#53C3D0",
-      dark: "#34AEBC"
+      dark: "#34AEBC",
     },
     primary: {
       "extra-light": "#E8EFF5",

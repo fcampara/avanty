@@ -1,9 +1,9 @@
-import { Button } from "ui"
+import Header from "../components/Header"
 
 export default function Web() {
   return (
     <div>
-      <Button>Web</Button>
+      <Header />
     </div>
   )
 }

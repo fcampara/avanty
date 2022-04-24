@@ -25,7 +25,7 @@ const GlobalStyle = css`
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider>
-      <Global styles={GlobalStyle}/>
+      <Global styles={GlobalStyle} />
       {/** @ts-expect-error Multiple posibilities */}
       <Component {...pageProps} />
     </ThemeProvider>
