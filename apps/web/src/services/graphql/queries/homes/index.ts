@@ -12,6 +12,16 @@ export const QUERY_HOMES = gql`
         regionName
         roomsCount
         maxOccupancy
+        seasonPricing {
+          highSeason {
+            minPrice
+            maxPrice
+          }
+          lowSeason {
+            minPrice
+            maxPrice
+          }
+        }
         photos {
           url
         }

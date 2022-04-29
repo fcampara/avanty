@@ -1,3 +1,13 @@
+type HomePriceRange = {
+  minPrice: number
+  maxPrice: number
+}
+
+type HomeSeasonPrice = {
+  highSeason: HomePriceRange
+  lowSeason: HomePriceRange
+}
+
 type HomePhoto = {
   url: string
 }
@@ -13,6 +23,7 @@ export interface Home {
   bathroomsCount: number
   maxOccupancy: number
   photos: HomePhoto[]
+  seasonPricing?: HomeSeasonPrice
 }
 
 export interface HomeResults {

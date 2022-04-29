@@ -6,7 +6,7 @@ import { ViewHomesListProps } from "./types"
 
 const ListHomes = (props: ViewHomesListProps) => {
   const { homes, regions } = props
-
+  console.log("homes", homes)
   return (
     <SearchProvider regions={regions}>
       <Header />

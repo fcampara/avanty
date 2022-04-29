@@ -17,7 +17,11 @@ const CardPrice = (props: Home) => {
     stateCode,
     regionName,
     hasPool,
+    seasonPricing,
   } = props
+
+  const seasonLowerPrice = Object.values(seasonPricing?.lowSeason || {})
+  const seasonHighPrice = Object.values(seasonPricing?.highSeason || {})
   return (
     <Styled.Card>
       <Image width={360} height={208} src={photos[0].url} />
@@ -52,9 +56,10 @@ const CardPrice = (props: Home) => {
             </li>
           </Styled.Amenities>
         </div>
-        <div>
-          <PriceDetail />
-        </div>
+        <Styled.PriceWrapper>
+          <PriceDetail season={"low"} price={seasonLowerPrice} />
+          <PriceDetail season={"high"} price={seasonHighPrice} />
+        </Styled.PriceWrapper>
       </Styled.CardDetail>
     </Styled.Card>
   )

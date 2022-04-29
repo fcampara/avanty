@@ -13,7 +13,9 @@ export function createApolloClient() {
   return new ApolloClient({
     ssrMode: typeof window === "undefined",
     link: new HttpLink({ uri: "https://fake-api.avantstay.dev/graphql" }),
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+      addTypename: false,
+    }),
   })
 }
 

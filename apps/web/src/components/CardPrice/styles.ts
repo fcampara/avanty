@@ -16,6 +16,11 @@ export const RegionWrapper = styled.div`
   align-items: center;
 `
 
+export const PriceWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
 export const Region = styled.span`
   font-size: 12px;
   line-height: 15px;
