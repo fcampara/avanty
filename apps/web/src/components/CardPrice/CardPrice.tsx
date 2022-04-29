@@ -5,6 +5,7 @@ import PriceDetail from "../PriceDetail"
 import { Separator } from "ui"
 import { Home } from "../../services/graphql/queries/homes/types"
 import { memo } from "react"
+import usePicture from "../../hooks/usePicture"
 
 const CardPrice = (props: Home) => {
   const {
@@ -22,9 +23,15 @@ const CardPrice = (props: Home) => {
 
   const seasonLowerPrice = Object.values(seasonPricing?.lowSeason || {})
   const seasonHighPrice = Object.values(seasonPricing?.highSeason || {})
+  const photoUrl = usePicture(photos[0].url, {
+    webp: true,
+    width: 360,
+    height: 208,
+  })
+
   return (
     <Styled.Card>
-      <Image width={360} height={208} src={photos[0].url} />
+      <Image width={360} height={208} src={photoUrl} />
       <Styled.CardDetail>
         <div className="av-card__container">
           <Styled.RegionWrapper>
