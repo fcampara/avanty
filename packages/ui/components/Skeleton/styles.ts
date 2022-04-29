@@ -1,5 +1,6 @@
 import { keyframes } from "@emotion/react"
 import styled from "@emotion/styled"
+import { SkeletonStylesProps } from "./types"
 
 const shimmer = keyframes`
     100% {
@@ -7,12 +8,14 @@ const shimmer = keyframes`
     }
 `
 
-export const Skeleton = styled.span`
+export const Skeleton = styled.span<SkeletonStylesProps>`
   display: inline-block;
   height: 1em;
   position: relative;
   overflow: hidden;
   background-color: #dddbdd;
+  width: ${({ width }) => `${width}px`};
+  height: ${({ height }) => `${height}px`};
 
   &::after {
     position: absolute;
