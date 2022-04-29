@@ -1,13 +1,14 @@
+import { memo } from "react"
 import Image from "next/image"
 import * as Styled from "./styles"
 import { Rooms, Bath, User, Pool } from "icons"
 import PriceDetail from "../PriceDetail"
 import { Separator } from "ui"
-import { Home } from "../../services/graphql/queries/homes/types"
-import { memo } from "react"
 import usePicture from "../../hooks/usePicture"
+import Loading from "./Loading"
+import { CardPriceProps } from "./types"
 
-const CardPrice = (props: Home) => {
+const CardPrice = (props: CardPriceProps) => {
   const {
     bathroomsCount,
     maxOccupancy,
@@ -33,7 +34,7 @@ const CardPrice = (props: Home) => {
     <Styled.Card>
       <Image width={360} height={208} src={photoUrl} />
       <Styled.CardDetail>
-        <div className="av-card__container">
+        <div>
           <Styled.RegionWrapper>
             <Styled.Region>{regionName}</Styled.Region>
             <Separator color="accent" />
@@ -71,5 +72,7 @@ const CardPrice = (props: Home) => {
     </Styled.Card>
   )
 }
+
+CardPrice.Loading = Loading
 
 export default memo(CardPrice)

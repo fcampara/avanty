@@ -19,6 +19,12 @@ export const RegionWrapper = styled.div`
 export const PriceWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+
+  &.av-card-price__wrapper--loading {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 6px;
+  }
 `
 
 export const Region = styled.span`
@@ -51,4 +57,10 @@ export const CardDetail = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  & > .av-card-price__detail--loading {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 6px;
+  }
 `

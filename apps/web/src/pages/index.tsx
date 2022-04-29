@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-import { getServerSidePropsHomes } from "../services/serverSideProps/homes"
 import { NextPage } from "next"
-import ViewHomesList, { ViewHomesListProps } from "../views/HomesList"
+import { getServerSidePropsRegions } from "../services/serverSideProps/regions"
+import ViewHomes, { ViewHomesProps } from "../views/Homes"
 
-const PageHome: NextPage<ViewHomesListProps> = ViewHomesList
+const PageHome: NextPage<ViewHomesProps> = ViewHomes
 
-export const getServerSideProps = getServerSidePropsHomes
+export const getServerSideProps = getServerSidePropsRegions
 
 export default PageHome

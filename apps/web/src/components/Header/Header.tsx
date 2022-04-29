@@ -3,7 +3,6 @@ import * as Styled from "./styles"
 import { ChevronDown, LogoText } from "icons"
 import { useMemo } from "react"
 import { useSearch } from "../../context/Search/provider"
-import { useRouter } from "next/router"
 
 const ORDERS = [
   { label: "Relevance", value: "relevance" },
@@ -12,8 +11,7 @@ const ORDERS = [
 ]
 
 const Header = () => {
-  const { onChangeFilter, regions } = useSearch()
-  const { query } = useRouter()
+  const { onChangeFilter, filter, regions } = useSearch()
 
   const formattedRegions = useMemo(() => {
     return regions?.map(({ name, stateName }) => ({
@@ -46,7 +44,7 @@ const Header = () => {
         <InputGroup>
           <InputSelect
             label="Where"
-            defaultValue={query.regionName}
+            defaultValue={filter.region?.name}
             options={formattedRegions}
             onChange={onChangeFilter}
           />
