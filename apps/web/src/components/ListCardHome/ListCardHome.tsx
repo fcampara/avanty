@@ -3,6 +3,7 @@ import * as Styles from "./styles"
 import useEventListener from "../../hooks/useEventListener"
 import { useHomes } from "../../hooks/useHomes"
 import { useSearch } from "../../context/Search/provider"
+import { useRef } from "react"
 
 type ScrollingElement = {
   scrollingElement: {
@@ -14,11 +15,15 @@ type ScrollingElement = {
 
 const ViewHomesList = () => {
   const { filter } = useSearch()
-  const { loading, data } = useHomes({
+  const page = useRef(1)
+  const { loading, data, fetchMore } = useHomes({
     variables: {
       region: filter?.region?.id,
+      page: page.current,
     },
   })
+
+  console.log("data", data)
 
   useEventListener("scroll", event => {
     const scrollingElement =
@@ -27,7 +32,13 @@ const ViewHomesList = () => {
       scrollingElement.scrollHeight - scrollingElement.scrollTop ===
       scrollingElement.clientHeight
     ) {
-      console.log("scrolled")
+      page.current += 1
+      fetchMore({
+        variables: {
+          region: filter?.region?.id,
+          page: page.current,
+        },
+      })
     }
   })
 

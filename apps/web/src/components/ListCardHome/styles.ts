@@ -18,7 +18,6 @@ export const Ul = styled.ul`
       background-color: ${({ theme }) => theme.colors.neutral["extra-light"]};
       height: 1px;
       width: 100%;
-      max-width: 800px;
     }
   }
 `

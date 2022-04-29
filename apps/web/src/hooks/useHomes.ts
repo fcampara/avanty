@@ -7,6 +7,7 @@ export function useHomes(
     HomeResults,
     {
       region?: string
+      page?: number
     }
   >,
 ) {

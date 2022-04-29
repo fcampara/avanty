@@ -15,6 +15,23 @@ export function createApolloClient() {
     link: new HttpLink({ uri: "https://fake-api.avantstay.dev/graphql" }),
     cache: new InMemoryCache({
       addTypename: false,
+      typePolicies: {
+        Query: {
+          fields: {
+            homes: {
+              keyArgs: false,
+              merge(existing, incoming) {
+                const existingResults = existing?.results || []
+                const incomingResults = incoming?.results || []
+
+                return {
+                  results: [...existingResults, ...incomingResults],
+                }
+              },
+            },
+          },
+        },
+      },
     }),
   })
 }
