@@ -24,6 +24,7 @@ type ColorAccent = {
 }
 
 type ColorNeutral = {
+  "extra-light": string
   transparent: string
   black: string
   white: string

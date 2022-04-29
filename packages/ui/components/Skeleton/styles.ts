@@ -13,7 +13,7 @@ export const Skeleton = styled.span<SkeletonStylesProps>`
   height: 1em;
   position: relative;
   overflow: hidden;
-  background-color: #dddbdd;
+  background-color: ${({ theme }) => theme.colors.neutral["extra-light"]};
   width: ${({ width }) => `${width}px`};
   height: ${({ height }) => `${height}px`};
 
