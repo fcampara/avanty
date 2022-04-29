@@ -3,7 +3,7 @@ import * as Styles from "./styles"
 import useEventListener from "../../hooks/useEventListener"
 import { useHomes } from "../../hooks/useHomes"
 import { useSearch } from "../../context/Search/provider"
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 
 type ScrollingElement = {
   scrollingElement: {
@@ -16,16 +16,23 @@ type ScrollingElement = {
 const ViewHomesList = () => {
   const { filter } = useSearch()
   const page = useRef(1)
-  const { loading, data, fetchMore } = useHomes({
+  const hasMore = useRef(true)
+  const { loading, data, fetchMore, refetch } = useHomes({
     variables: {
       region: filter?.region?.id,
       page: page.current,
     },
   })
 
-  console.log("data", data)
+  useEffect(() => {
+    page.current = 1
+    hasMore.current = true
+    document.body.scrollIntoView({ behavior: "smooth" })
+    setTimeout(refetch, 200)
+  }, [filter])
 
-  useEventListener("scroll", event => {
+  useEventListener("scroll", async event => {
+    if (!hasMore.current) return
     const scrollingElement =
       ((event?.target || {}) as ScrollingElement)?.scrollingElement || {}
     if (
@@ -33,12 +40,13 @@ const ViewHomesList = () => {
       scrollingElement.clientHeight
     ) {
       page.current += 1
-      fetchMore({
+      const { data } = await fetchMore({
         variables: {
           region: filter?.region?.id,
           page: page.current,
         },
       })
+      hasMore.current = Boolean(data.homes.results.length)
     }
   })
 
