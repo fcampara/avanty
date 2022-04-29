@@ -11,6 +11,7 @@ import {
 } from "../services/graphql/queries/regions/types"
 import { SearchProvider } from "../context/Search"
 import Header from "../components/Header"
+import { Main } from "../components/Main"
 
 interface PageHomeProps {
   homes: Home[]
@@ -23,7 +24,9 @@ const PageHome: NextPage<PageHomeProps> = props => {
   return (
     <SearchProvider regions={regions}>
       <Header />
-      <ListHomes homes={homes} />
+      <Main>
+        <ListHomes homes={homes} />
+      </Main>
     </SearchProvider>
   )
 }
