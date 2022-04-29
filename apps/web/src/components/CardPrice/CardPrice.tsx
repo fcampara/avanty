@@ -73,6 +73,4 @@ const CardPrice = (props: CardPriceProps) => {
   )
 }
 
-CardPrice.Loading = Loading
-
 export default memo(CardPrice)

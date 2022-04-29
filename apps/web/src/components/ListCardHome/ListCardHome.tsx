@@ -14,12 +14,11 @@ type ScrollingElement = {
 
 const ViewHomesList = () => {
   const { filter } = useSearch()
-  const { data } = useHomes({
+  const { loading, data } = useHomes({
     variables: {
       region: filter?.region?.id,
     },
   })
-  const loading = true
 
   useEventListener("scroll", event => {
     const scrollingElement =
