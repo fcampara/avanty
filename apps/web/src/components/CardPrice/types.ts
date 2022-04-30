@@ -1,4 +1,4 @@
-import { Home } from "../../services/graphql/queries/homes/types"
+import { Home } from "../../services/graphql/homes/types"
 
 export type CardPriceProps = Home
 export type CardPriceLoadingProps = {

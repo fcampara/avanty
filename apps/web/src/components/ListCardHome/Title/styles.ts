@@ -29,11 +29,12 @@ export const Title = styled.span`
 
 export const Subtitle = styled.div`
   color: ${({ theme }) => theme.colors.primary.medium};
-    font-weight: 300;
+  font-weight: 300;
   font-size: 28px;
   line-height: 34px;
 
-  & > strong, & > span {
+  & > strong,
+  & > span {
     font-size: 28px;
     letter-spacing: -0.01em;
   }
@@ -41,4 +42,4 @@ export const Subtitle = styled.div`
   & > strong {
     font-weight: ${({ theme }) => theme.typography.weight["semi-bold"]};
   }
-  `
+`

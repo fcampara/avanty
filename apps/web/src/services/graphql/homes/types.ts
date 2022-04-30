@@ -1,3 +1,16 @@
+export type HomeVariableOrder = "RELEVANCE" | "PRICE_DESC" | "PRICE_ASC"
+export type HomeVariablePeriod = {
+  checkIn?: string
+  checkOut?: string
+}
+export type HomeVariables = {
+  region?: string
+  page?: number
+  order?: HomeVariableOrder
+  guests?: number
+  period?: HomeVariablePeriod
+}
+
 type HomePriceRange = {
   minPrice: number
   maxPrice: number

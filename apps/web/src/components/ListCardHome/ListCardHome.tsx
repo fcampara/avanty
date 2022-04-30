@@ -1,7 +1,7 @@
 import { CardPrice, CardPriceLoading } from "../CardPrice"
 import * as Styles from "./styles"
 import useEventListener from "../../hooks/useEventListener"
-import { useHomes } from "../../services/graphql/queries/homes/useHomes"
+import { useHomes } from "../../services/graphql/homes/useHomes"
 import { useSearch } from "../../context/Search/provider"
 import { useEffect, useRef } from "react"
 import Empty from "../Empty"
@@ -21,6 +21,7 @@ const ViewHomesList = () => {
   const hasMore = useRef(true)
   const { loading, data, fetchMore, refetch } = useHomes({
     variables: {
+      ...filter,
       region: filter.region?.id,
       order: filter.order,
       page: page.current,

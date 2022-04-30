@@ -1,6 +1,7 @@
 import { useRouter } from "next/router"
 import React, { useContext, useMemo, useRef } from "react"
 import { DEFAULT_ORDER } from "../../constants/filters"
+import { HomeVariablePeriod } from "../../services/graphql/homes/types"
 import SearchContext from "./context"
 import {
   SearchContextProps,
@@ -13,13 +14,15 @@ const DEFAULT_FILTER: { [k in string]: string } = {
   region: "",
   order: DEFAULT_ORDER,
   guests: "2",
+  checkIn: "",
+  checkOut: ""
 }
 
 const SearchProvider = (props: SearchProvider) => {
   const { children, regions = [] } = props
   const filters = useRef(new Set<string>())
   const router = useRouter()
-  const { regionName, order, guests } = router.query
+  const { regionName, order, guests, checkIn, checkOut } = router.query
 
   const setFilterRegion = (value: string) => {
     if (router.pathname === "/") {
@@ -42,7 +45,12 @@ const SearchProvider = (props: SearchProvider) => {
       return setFilterRegion(value)
     }
 
-    router.query[filterName] = value
+    if (value) {
+      router.query[filterName] = value
+    } else {
+      delete router.query[filterName]
+    }
+
     router.replace(router, undefined, { shallow: true })
   }
 
@@ -67,6 +75,14 @@ const SearchProvider = (props: SearchProvider) => {
     [regions, regionName],
   )
 
+  const period = useMemo(() => {
+    if (!checkIn && !checkOut) return
+    const period: HomeVariablePeriod = {}
+    if (checkIn) period.checkIn = checkIn as string
+    if (checkOut) period.checkOut = checkOut  as string
+    return period
+  }, [checkIn, checkOut])
+
   return (
     <SearchContext.Provider
       value={{
@@ -78,6 +94,7 @@ const SearchProvider = (props: SearchProvider) => {
           region,
           order: (order as SearchFilterOrder) || DEFAULT_FILTER.order,
           guests: (guests as string) || DEFAULT_FILTER.guests,
+          period
         },
       }}
     >

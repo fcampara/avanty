@@ -1,7 +1,13 @@
 import { ReactNode } from "react"
-import { Region } from "../../services/graphql/queries/regions/types"
+import { HomeVariableOrder, HomeVariablePeriod } from "../../services/graphql/homes/types"
+import { Region } from "../../services/graphql/regions/types"
 
-export type SearchFilterName = "regions" | "order" | "guests"
+export type SearchFilterName =
+  | "regions"
+  | "order"
+  | "guests"
+  | "checkIn"
+  | "checkOut"
 export type SearchFilterOrder = "RELEVANCE" | "PRICE_DESC" | "PRICE_ASC"
 
 export interface SearchContextProps {
@@ -12,7 +18,8 @@ export interface SearchContextProps {
   filter: {
     region?: Region
     guests?: string
-    order: SearchFilterOrder
+    order: HomeVariableOrder
+    period?: HomeVariablePeriod
   }
 }
 

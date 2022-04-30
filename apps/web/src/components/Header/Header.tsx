@@ -30,9 +30,9 @@ const Header = () => {
   }
 
   useEffect(() => {
-    setFilter("regions")
-    setFilter("guests")
-    setFilter("order")
+    ;["regions", "guests", "order", "checkIn", "checkOut"].forEach(filter => {
+      setFilter(filter)
+    })
   }, [])
 
   return (
@@ -64,7 +64,20 @@ const Header = () => {
             options={formattedRegions}
             onChange={event => onChange(event, "regions")}
           />
-          <Input id="when" label="When" multiple type="date" />
+          <Input
+            id="whenCheckIn"
+            name="checkIn"
+            type="date"
+            label="When"
+            defaultValue={filter.period?.checkIn}
+            onChange={event => onChange(event, "checkIn")}
+          />
+          <Input
+            id="whenCheckOut"
+            name="checkOut"
+            type="date"defaultValue={filter.period?.checkOut}
+            onChange={event => onChange(event, "checkOut")}
+          />
           <Input
             id="who"
             label="Who"

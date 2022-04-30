@@ -6,6 +6,7 @@ export const QUERY_HOMES = gql`
     $page: Int
     $order: HomesOrder
     $guests: Int
+    $period: BookingPeriod
   ) {
     homes(
       region: $region
@@ -13,6 +14,7 @@ export const QUERY_HOMES = gql`
       page: $page
       order: $order
       guests: $guests
+      period: $period
     ) {
       count
       results {

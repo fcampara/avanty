@@ -1,4 +1,4 @@
-import { Region } from "../../services/graphql/queries/regions/types"
+import { Region } from "../../services/graphql/regions/types"
 
 export interface ViewHomesProps {
   regions: Region[]
