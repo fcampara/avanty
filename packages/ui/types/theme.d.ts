@@ -28,6 +28,7 @@ type ColorNeutral = {
   transparent: string
   black: string
   white: string
+  "extra-dark": string
 }
 
 export type AvantyTheme = {
