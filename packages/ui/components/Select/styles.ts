@@ -6,6 +6,15 @@ export const Fieldset = styled(StyledInput.Fieldset)``
 export const Label = styled(StyledInput.Label)`
   cursor: pointer;
 `
+export const Wrapper = styled.div`
+display: flex;
+align-items: center;
+grid-gap: 8px;
+
+& > select {
+  flex: 1;
+}
+`
 export const Select = styled(StyledInput.Input.withComponent("select"))`
   cursor: pointer;
   appearance: none;

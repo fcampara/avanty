@@ -2,6 +2,7 @@ import { ClassNames } from "@emotion/react"
 import { forwardRef, ForwardRefRenderFunction } from "react"
 import * as Styled from "./styles"
 import { SelectProps } from "./types"
+import { ChevronDown } from "icons"
 
 const Select: ForwardRefRenderFunction<HTMLSelectElement, SelectProps> = (
   props,
@@ -13,7 +14,8 @@ const Select: ForwardRefRenderFunction<HTMLSelectElement, SelectProps> = (
       {({ cx }) => (
         <Styled.Fieldset className={cx([className, Styled.SelectClassname])}>
           <Styled.Label>{label}</Styled.Label>
-          <Styled.Select
+          <Styled.Wrapper>
+            <Styled.Select
             required
             ref={ref}
             placeholder={placeholder}
@@ -28,6 +30,8 @@ const Select: ForwardRefRenderFunction<HTMLSelectElement, SelectProps> = (
               </option>
             ))}
           </Styled.Select>
+          <ChevronDown/>
+          </Styled.Wrapper>
         </Styled.Fieldset>
       )}
     </ClassNames>
