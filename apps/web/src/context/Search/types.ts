@@ -6,6 +6,8 @@ export type SearchFilterOrder = "RELEVANCE" | "PRICE_DESC" | "PRICE_ASC"
 
 export interface SearchContextProps {
   onChangeFilter: (value: string, filterName: SearchFilterName) => void
+  setFilter: (filterName: string) => void
+  clearFilters: () => void
   regions: Region[]
   filter: {
     region?: Region

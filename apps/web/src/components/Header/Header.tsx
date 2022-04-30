@@ -1,7 +1,7 @@
 import { InputGroup, InputSelect, Input, Link, Button } from "ui"
 import * as Styled from "./styles"
 import { ChevronDown, LogoText } from "icons"
-import { useMemo } from "react"
+import { useEffect, useMemo } from "react"
 import { useSearch } from "../../context/Search/provider"
 import { ORDERS } from "../../constants/filters"
 import { HeaderOnChangeEvent } from "./types"
@@ -9,7 +9,7 @@ import { SearchFilterName } from "../../context/Search/types"
 
 let timer: NodeJS.Timeout
 const Header = () => {
-  const { onChangeFilter, filter, regions } = useSearch()
+  const { onChangeFilter, setFilter, filter, regions } = useSearch()
 
   const formattedRegions = useMemo(() => {
     return regions?.map(({ name, stateName }) => ({
@@ -26,8 +26,14 @@ const Header = () => {
     clearInterval(timer)
     timer = setTimeout(() => {
       onChangeFilter(value, filterName)
-    }, 200)
+    }, 500)
   }
+
+  useEffect(() => {
+    setFilter("regions")
+    setFilter("guests")
+    setFilter("order")
+  }, [])
 
   return (
     <Styled.Header>
@@ -53,6 +59,7 @@ const Header = () => {
         <InputGroup>
           <InputSelect
             label="Where"
+            name="regions"
             defaultValue={filter.region?.name}
             options={formattedRegions}
             onChange={event => onChange(event, "regions")}
@@ -61,6 +68,7 @@ const Header = () => {
           <Input
             id="who"
             label="Who"
+            name="guests"
             defaultValue={filter.guests}
             max="30"
             min="0"
@@ -70,6 +78,7 @@ const Header = () => {
           />
           <InputSelect
             label="Order"
+            name="order"
             defaultValue={filter.order}
             options={ORDERS}
             onChange={event => onChange(event, "order")}

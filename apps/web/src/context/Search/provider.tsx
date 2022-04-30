@@ -1,5 +1,5 @@
 import { useRouter } from "next/router"
-import React, { useContext, useMemo } from "react"
+import React, { useContext, useMemo, useRef } from "react"
 import { DEFAULT_ORDER } from "../../constants/filters"
 import SearchContext from "./context"
 import {
@@ -9,8 +9,15 @@ import {
   SearchProvider,
 } from "./types"
 
+const DEFAULT_FILTER: { [k in string]: string } = {
+  region: "",
+  order: DEFAULT_ORDER,
+  guests: "2"
+}
+
 const SearchProvider = (props: SearchProvider) => {
   const { children, regions = [] } = props
+  const filters = useRef(new Set<string>())
   const router = useRouter()
   const { regionName, order, guests } = router.query
 
@@ -39,6 +46,22 @@ const SearchProvider = (props: SearchProvider) => {
     router.replace(router, undefined, { shallow: true })
   }
 
+  const clearFilters = () => {
+    for (const filterName of filters.current) {
+      const element = document.querySelector<HTMLInputElement>(`[name="${filterName}"]`)
+      if (!element) continue
+
+      console.log("filterName", filterName)
+      console.log("DEFAULT_FILTER?.[filterName]", DEFAULT_FILTER?.[filterName])
+      element.value = DEFAULT_FILTER?.[filterName] || ""
+    }
+    router.replace("/")
+  }
+
+  const setFilter = (filterName: string) => {
+    filters.current.add(filterName)
+  }
+
   const region = useMemo(
     () => regions.find(({ name }) => name === regionName),
     [regions, regionName],
@@ -47,12 +70,14 @@ const SearchProvider = (props: SearchProvider) => {
   return (
     <SearchContext.Provider
       value={{
+        setFilter,
+        clearFilters,
         onChangeFilter,
         regions,
         filter: {
           region,
-          order: (order as SearchFilterOrder) || DEFAULT_ORDER,
-          guests: (guests as string) || "2",
+          order: (order as SearchFilterOrder) || DEFAULT_FILTER.order,
+          guests: (guests as string) || DEFAULT_FILTER.guests,
         },
       }}
     >

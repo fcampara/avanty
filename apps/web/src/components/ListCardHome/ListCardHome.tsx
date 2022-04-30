@@ -4,6 +4,7 @@ import useEventListener from "../../hooks/useEventListener"
 import { useHomes } from "../../services/graphql/queries/homes/useHomes"
 import { useSearch } from "../../context/Search/provider"
 import { useEffect, useRef } from "react"
+import ListCardHomeEmpty from "../Empty/Empty"
 
 type ScrollingElement = {
   scrollingElement: {
@@ -51,6 +52,8 @@ const ViewHomesList = () => {
       hasMore.current = Boolean(data.homes.results.length)
     }
   })
+
+  if (!loading && !data?.homes?.results?.length) return <ListCardHomeEmpty />
 
   return (
     <Styles.Ul>
