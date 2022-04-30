@@ -1,15 +1,23 @@
 import { useRouter } from "next/router"
 import React, { ChangeEvent, useContext, useMemo } from "react"
+import { DEFAULT_ORDER } from "../../constants/filters"
 import SearchContext from "./context"
-import { SearchContextProps, SearchProvider } from "./types"
+import { SearchContextProps, SearchFilterName, SearchFilterOrder, SearchProvider } from "./types"
 
 const SearchProvider = (props: SearchProvider) => {
   const { children, regions = [] } = props
   const router = useRouter()
-  const { regionName } = router.query
-  const onChangeFilter = (event: ChangeEvent<HTMLSelectElement>) => {
+  const { regionName, order } = router.query
+  const onChangeFilter = (
+    event: ChangeEvent<HTMLSelectElement>,
+    filterName: SearchFilterName,
+  ) => {
     const { value } = event.target
-    router.replace(`/regions/${value}`, undefined, { shallow: true })
+    if (filterName === "regions")
+      return router.replace(`/regions/${value}`, undefined, { shallow: true })
+
+    router.query[filterName] = value
+    router.replace(router, undefined, { shallow: true })
   }
 
   const region = useMemo(() => {
@@ -23,6 +31,7 @@ const SearchProvider = (props: SearchProvider) => {
         regions,
         filter: {
           region,
+          order: (order as SearchFilterOrder) || DEFAULT_ORDER
         },
       }}
     >

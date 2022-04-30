@@ -19,7 +19,8 @@ const ViewHomesList = () => {
   const hasMore = useRef(true)
   const { loading, data, fetchMore, refetch } = useHomes({
     variables: {
-      region: filter?.region?.id,
+      region: filter.region?.id,
+      order: filter.order,
       page: page.current,
     },
   })

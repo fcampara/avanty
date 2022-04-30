@@ -3,12 +3,7 @@ import * as Styled from "./styles"
 import { ChevronDown, LogoText } from "icons"
 import { useMemo } from "react"
 import { useSearch } from "../../context/Search/provider"
-
-const ORDERS = [
-  { label: "Relevance", value: "relevance" },
-  { label: "Price: Lowest First", value: "lowest price first" },
-  { label: "Price: Highest First", value: "highest price first" },
-]
+import { DEFAULT_ORDER, ORDERS } from "../../constants/filters"
 
 const Header = () => {
   const { onChangeFilter, filter, regions } = useSearch()
@@ -46,7 +41,7 @@ const Header = () => {
             label="Where"
             defaultValue={filter.region?.name}
             options={formattedRegions}
-            onChange={onChangeFilter}
+            onChange={event => onChangeFilter(event, "regions")}
           />
           <Input id="when" label="When" multiple type="date" />
           <Input
@@ -59,8 +54,9 @@ const Header = () => {
           />
           <InputSelect
             label="Order"
-            defaultValue={ORDERS[0].value}
+            defaultValue={DEFAULT_ORDER}
             options={ORDERS}
+            onChange={event => onChangeFilter(event, "order")}
           />
         </InputGroup>
         <Input id="coupon" label="Coupon" placeholder="Got a code?" />
