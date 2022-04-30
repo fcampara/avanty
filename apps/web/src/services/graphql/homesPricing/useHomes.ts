@@ -1,9 +1,9 @@
 import { QueryHookOptions, useQuery } from "@apollo/client"
 import { QUERY_HOMES_PRICING } from "./queries"
-import { HomePricing, HomePricingVariables } from "./types"
+import { HomesPricingResults, HomePricingVariables } from "./types"
 
 export function useHomesPricing(
-  options?: QueryHookOptions<HomePricing, HomePricingVariables>,
+  options?: QueryHookOptions<HomesPricingResults, HomePricingVariables>,
 ) {
-  return useQuery<HomePricing>(QUERY_HOMES_PRICING, options)
+  return useQuery<HomesPricingResults>(QUERY_HOMES_PRICING, options)
 }

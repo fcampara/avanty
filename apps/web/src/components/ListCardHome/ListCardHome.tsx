@@ -6,6 +6,7 @@ import { useSearch } from "../../context/Search/provider"
 import { useEffect, useRef } from "react"
 import Empty from "../Empty"
 import ListCardHomeTitle from "./Title"
+import { PricingProvider } from "../../context/Pricing"
 
 type ScrollingElement = {
   scrollingElement: {
@@ -19,18 +20,16 @@ const ViewHomesList = () => {
   const { filter } = useSearch()
   const page = useRef(1)
   const hasMore = useRef(true)
-  const { loading, data, fetchMore, refetch } = useHomes({
-    variables: {
-      ...filter,
-      region: filter.region?.id,
-      order: filter.order,
-      page: page.current,
-      guests: Number(filter.guests),
-    },
-  })
-
-  const totalLoaded = data?.homes.results.length || 0
-  const count = data?.homes.count || 0
+  const variables = {
+    ...filter,
+    region: filter.region?.id,
+    order: filter.order,
+    page: page.current,
+    guests: Number(filter.guests),
+  }
+  const { loading, data, fetchMore, refetch } = useHomes({ variables })
+  const { results = [], count = 0 } = data?.homes || {}
+  const totalLoaded = results.length || 0
   hasMore.current = totalLoaded < count
   useEffect(() => {
     page.current = 1
@@ -49,27 +48,24 @@ const ViewHomesList = () => {
     ) {
       page.current += 1
       await fetchMore({
-        variables: {
-          region: filter?.region?.id,
-          page: page.current,
-        },
+        variables,
       })
     }
   })
 
-  if (!loading && !data?.homes?.results?.length) return <Empty />
+  if (!loading && !results.length) return <Empty />
 
   return (
     <Styles.Ul>
-      <ListCardHomeTitle loading={loading} count={data?.homes?.count} />
+      <ListCardHomeTitle loading={loading} count={count} />
       {loading ? (
         <CardPriceLoading repeat={3} />
       ) : (
-        <>
-          {data?.homes?.results?.map(home => (
+        <PricingProvider homes={results}>
+          {results?.map(home => (
             <CardPrice key={home.id} {...home} />
           ))}
-        </>
+        </PricingProvider>
       )}
     </Styles.Ul>
   )

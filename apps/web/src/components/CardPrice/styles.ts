@@ -41,6 +41,7 @@ export const Amenities = styled.ul`
   grid-gap: 21px;
 
   & > li {
+    white-space: pre;
     font-size: 12px;
     display: flex;
     align-items: center;

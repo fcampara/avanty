@@ -6,6 +6,31 @@ import PriceDetail from "../PriceDetail"
 import { Separator } from "ui"
 import usePicture from "../../hooks/usePicture"
 import { CardPriceProps } from "./types"
+import { usePricingHome } from "../../context/Pricing/provider"
+import CardPriceLoading from "./PriceLoading"
+
+const Pricing = (props: CardPriceProps) => {
+  const { id, seasonPricing } = props
+  const { loading, pricing } = usePricingHome()
+  const seasonLowerPrice = Object.values(seasonPricing?.lowSeason || {})
+  const seasonHighPrice = Object.values(seasonPricing?.highSeason || {})
+  if (loading) return <CardPriceLoading />
+  const homePricing = pricing[id]
+  if (!homePricing)
+    return (
+      <Styled.PriceWrapper>
+        <PriceDetail season={"low"} price={seasonLowerPrice} />
+        <PriceDetail season={"high"} price={seasonHighPrice} />
+      </Styled.PriceWrapper>
+    )
+
+  return (
+    <PriceDetail
+      nights={homePricing.numberOfNights}
+      price={homePricing.total}
+    />
+  )
+}
 
 const CardPrice = (props: CardPriceProps) => {
   const {
@@ -18,11 +43,8 @@ const CardPrice = (props: CardPriceProps) => {
     stateCode,
     regionName,
     hasPool,
-    seasonPricing,
   } = props
 
-  const seasonLowerPrice = Object.values(seasonPricing?.lowSeason || {})
-  const seasonHighPrice = Object.values(seasonPricing?.highSeason || {})
   const photoUrl = usePicture(photos[0].url, {
     webp: true,
     width: 360,
@@ -66,10 +88,7 @@ const CardPrice = (props: CardPriceProps) => {
             </li>
           </Styled.Amenities>
         </div>
-        <Styled.PriceWrapper>
-          <PriceDetail season={"low"} price={seasonLowerPrice} />
-          <PriceDetail season={"high"} price={seasonHighPrice} />
-        </Styled.PriceWrapper>
+        <Pricing {...props} />
       </Styled.CardDetail>
     </Styled.Card>
   )
