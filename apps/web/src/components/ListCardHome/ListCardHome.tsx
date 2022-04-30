@@ -3,7 +3,7 @@ import * as Styles from "./styles"
 import useEventListener from "../../hooks/useEventListener"
 import { useHomes } from "../../services/graphql/homes/useHomes"
 import { useSearch } from "../../context/Search/provider"
-import { useEffect, useRef } from "react"
+import { LegacyRef, useEffect, useRef } from "react"
 import Empty from "../Empty"
 import ListCardHomeTitle from "./Title"
 import { PricingProvider } from "../../context/Pricing"
@@ -19,6 +19,7 @@ type ScrollingElement = {
 const ViewHomesList = () => {
   const { filter } = useSearch()
   const page = useRef(1)
+  const tagLoadingElement = useRef<HTMLSpanElement>(null)
   const hasMore = useRef(true)
   const variables = {
     ...filter,
@@ -27,7 +28,9 @@ const ViewHomesList = () => {
     page: page.current,
     guests: Number(filter.guests),
   }
-  const { loading, data, fetchMore, refetch } = useHomes({ variables })
+  const { loading, data, fetchMore, refetch } = useHomes({
+    variables,
+  })
   const { results = [], count = 0 } = data?.homes || {}
   const totalLoaded = results.length || 0
   hasMore.current = totalLoaded < count
@@ -50,7 +53,7 @@ const ViewHomesList = () => {
       await fetchMore({
         variables: {
           ...variables,
-          page: page.current
+          page: page.current,
         },
       })
     }
@@ -70,6 +73,9 @@ const ViewHomesList = () => {
           ))}
         </PricingProvider>
       )}
+      <Styles.TagLoading hasMore={hasMore.current} ref={tagLoadingElement}>
+        Loading more homes...
+      </Styles.TagLoading>
     </Styles.Ul>
   )
 }

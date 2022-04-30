@@ -1,6 +1,6 @@
 import { PricingContextProps, PricingHome, PricingProvider } from "./types"
 import PricingContext from "./context"
-import { useContext, useRef } from "react"
+import { useContext, useEffect, useRef } from "react"
 import { useHomesPricing } from "../../services/graphql/homesPricing/useHomes"
 import { useSearch } from "../Search/provider"
 
@@ -30,6 +30,10 @@ const PricingProvider = (props: PricingProvider) => {
       homePricing.current.set(homeId, restPricing)
     }
   })
+
+  useEffect(() => {
+    homePricing.current.clear()
+  }, [filter])
 
   return (
     <PricingContext.Provider value={{ pricing: homePricing.current, loading }}>
