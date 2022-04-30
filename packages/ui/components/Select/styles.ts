@@ -7,13 +7,13 @@ export const Label = styled(StyledInput.Label)`
   cursor: pointer;
 `
 export const Wrapper = styled.div`
-display: flex;
-align-items: center;
-grid-gap: 8px;
+  display: flex;
+  align-items: center;
+  grid-gap: 8px;
 
-& > select {
-  flex: 1;
-}
+  & > select {
+    flex: 1;
+  }
 `
 export const Select = styled(StyledInput.Input.withComponent("select"))`
   cursor: pointer;

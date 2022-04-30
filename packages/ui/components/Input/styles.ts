@@ -39,6 +39,7 @@ export const Fieldset = styled.fieldset`
 `
 export const Label = styled.label`
   line-height: 13px;
+  min-height: 13px;
   font-size: 11px;
   letter-spacing: -0.01em;
   cursor: text;
