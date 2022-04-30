@@ -9,13 +9,13 @@ import { CardPriceProps } from "./types"
 import { usePricingHome } from "../../context/Pricing/provider"
 import CardPriceLoading from "./PriceLoading"
 
-const Pricing = (props: CardPriceProps) => {
+const Pricing = (props: Pick<CardPriceProps, "id" | "seasonPricing">) => {
   const { id, seasonPricing } = props
   const { loading, pricing } = usePricingHome()
   const seasonLowerPrice = Object.values(seasonPricing?.lowSeason || {})
   const seasonHighPrice = Object.values(seasonPricing?.highSeason || {})
-  if (loading) return <CardPriceLoading />
-  const homePricing = pricing[id]
+  const homePricing = pricing.get(id)
+  if (loading && !homePricing) return <CardPriceLoading />
   if (!homePricing)
     return (
       <Styled.PriceWrapper>
@@ -34,6 +34,8 @@ const Pricing = (props: CardPriceProps) => {
 
 const CardPrice = (props: CardPriceProps) => {
   const {
+    id,
+    seasonPricing,
     bathroomsCount,
     maxOccupancy,
     roomsCount,
@@ -88,7 +90,7 @@ const CardPrice = (props: CardPriceProps) => {
             </li>
           </Styled.Amenities>
         </div>
-        <Pricing {...props} />
+        <Pricing id={id} seasonPricing={seasonPricing} />
       </Styled.CardDetail>
     </Styled.Card>
   )

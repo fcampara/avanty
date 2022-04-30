@@ -1,16 +1,17 @@
 import { PricingContextProps, PricingHome, PricingProvider } from "./types"
 import PricingContext from "./context"
-import { useContext } from "react"
+import { useContext, useRef } from "react"
 import { useHomesPricing } from "../../services/graphql/homesPricing/useHomes"
 import { useSearch } from "../Search/provider"
 
 const PricingProvider = (props: PricingProvider) => {
   const { children, homes } = props
   const { filter } = useSearch()
-  const homeIds =
-    homes?.map(({ id }) => {
-      return id
-    }) || []
+  const homePricing = useRef(new Map<string, PricingHome>())
+  const homeIds: string[] = []
+  homes?.forEach(({ id }) => {
+    if (!homePricing.current.has(id)) homeIds.push(id)
+  })
 
   const skip =
     !homeIds.length || !filter.period?.checkIn || !filter.period?.checkOut
@@ -23,15 +24,15 @@ const PricingProvider = (props: PricingProvider) => {
     skip,
   })
 
-  const homePricing =
-    data?.homesPricing.reduce((currentPricing, homePricing) => {
-      const { homeId, ...restPricing } = homePricing
-      currentPricing[homeId] = restPricing
-      return currentPricing
-    }, {} as PricingHome) || {}
+  data?.homesPricing.forEach(pricing => {
+    const { homeId, ...restPricing } = pricing
+    if (!homePricing.current.has(homeId)) {
+      homePricing.current.set(homeId, restPricing)
+    }
+  })
 
   return (
-    <PricingContext.Provider value={{ pricing: homePricing, loading }}>
+    <PricingContext.Provider value={{ pricing: homePricing.current, loading }}>
       {children}
     </PricingContext.Provider>
   )
