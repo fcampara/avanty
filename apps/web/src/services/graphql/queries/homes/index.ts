@@ -10,6 +10,7 @@ export const QUERY_HOMES = gql`
         cityName
         stateCode
         regionName
+        bathroomsCount
         roomsCount
         maxOccupancy
         seasonPricing {
