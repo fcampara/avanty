@@ -12,7 +12,7 @@ import {
 const DEFAULT_FILTER: { [k in string]: string } = {
   region: "",
   order: DEFAULT_ORDER,
-  guests: "2"
+  guests: "2",
 }
 
 const SearchProvider = (props: SearchProvider) => {
@@ -48,11 +48,11 @@ const SearchProvider = (props: SearchProvider) => {
 
   const clearFilters = () => {
     for (const filterName of filters.current) {
-      const element = document.querySelector<HTMLInputElement>(`[name="${filterName}"]`)
+      const element = document.querySelector<HTMLInputElement>(
+        `[name="${filterName}"]`,
+      )
       if (!element) continue
 
-      console.log("filterName", filterName)
-      console.log("DEFAULT_FILTER?.[filterName]", DEFAULT_FILTER?.[filterName])
       element.value = DEFAULT_FILTER?.[filterName] || ""
     }
     router.replace("/")

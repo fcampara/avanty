@@ -28,6 +28,7 @@ export interface Home {
 
 export interface HomeResults {
   homes: {
+    count: number
     results: Home[]
   }
 }

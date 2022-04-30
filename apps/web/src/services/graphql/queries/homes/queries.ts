@@ -14,6 +14,7 @@ export const QUERY_HOMES = gql`
       order: $order
       guests: $guests
     ) {
+      count
       results {
         id
         title

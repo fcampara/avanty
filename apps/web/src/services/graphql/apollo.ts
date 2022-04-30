@@ -25,6 +25,7 @@ export function createApolloClient() {
                 const incomingResults = incoming?.results || []
 
                 return {
+                  count: incoming?.count,
                   results: [...existingResults, ...incomingResults],
                 }
               },
