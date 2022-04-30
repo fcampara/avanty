@@ -25,6 +25,7 @@ const tokens: AvantyTheme = {
       transparent: "transparent",
       black: "#000014",
       white: "#FFFFFF",
+      medium: "#B3B3B3",
       "extra-dark": "#505051",
     },
   },
