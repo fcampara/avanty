@@ -15,7 +15,7 @@ const DEFAULT_FILTER: { [k in string]: string } = {
   order: DEFAULT_ORDER,
   guests: "2",
   checkIn: "",
-  checkOut: ""
+  checkOut: "",
 }
 
 const SearchProvider = (props: SearchProvider) => {
@@ -79,7 +79,7 @@ const SearchProvider = (props: SearchProvider) => {
     if (!checkIn && !checkOut) return
     const period: HomeVariablePeriod = {}
     if (checkIn) period.checkIn = checkIn as string
-    if (checkOut) period.checkOut = checkOut  as string
+    if (checkOut) period.checkOut = checkOut as string
     return period
   }, [checkIn, checkOut])
 
@@ -94,7 +94,7 @@ const SearchProvider = (props: SearchProvider) => {
           region,
           order: (order as SearchFilterOrder) || DEFAULT_FILTER.order,
           guests: (guests as string) || DEFAULT_FILTER.guests,
-          period
+          period,
         },
       }}
     >

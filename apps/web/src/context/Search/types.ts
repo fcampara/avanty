@@ -1,5 +1,8 @@
 import { ReactNode } from "react"
-import { HomeVariableOrder, HomeVariablePeriod } from "../../services/graphql/homes/types"
+import {
+  HomeVariableOrder,
+  HomeVariablePeriod,
+} from "../../services/graphql/homes/types"
 import { Region } from "../../services/graphql/regions/types"
 
 export type SearchFilterName =

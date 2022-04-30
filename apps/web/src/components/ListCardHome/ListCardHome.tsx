@@ -29,6 +29,9 @@ const ViewHomesList = () => {
     },
   })
 
+  const totalLoaded = data?.homes.results.length || 0
+  const count = data?.homes.count || 0
+  hasMore.current = totalLoaded < count
   useEffect(() => {
     page.current = 1
     hasMore.current = true
@@ -45,13 +48,12 @@ const ViewHomesList = () => {
       scrollingElement.clientHeight
     ) {
       page.current += 1
-      const { data } = await fetchMore({
+      await fetchMore({
         variables: {
           region: filter?.region?.id,
           page: page.current,
         },
       })
-      hasMore.current = Boolean(data.homes.results.length)
     }
   })
 

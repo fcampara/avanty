@@ -75,7 +75,8 @@ const Header = () => {
           <Input
             id="whenCheckOut"
             name="checkOut"
-            type="date"defaultValue={filter.period?.checkOut}
+            type="date"
+            defaultValue={filter.period?.checkOut}
             onChange={event => onChange(event, "checkOut")}
           />
           <Input
