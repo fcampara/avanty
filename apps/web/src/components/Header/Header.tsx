@@ -3,8 +3,11 @@ import * as Styled from "./styles"
 import { ChevronDown, LogoText } from "icons"
 import { useMemo } from "react"
 import { useSearch } from "../../context/Search/provider"
-import { DEFAULT_ORDER, ORDERS } from "../../constants/filters"
+import { ORDERS } from "../../constants/filters"
+import { HeaderOnChangeEvent } from "./types"
+import { SearchFilterName } from "../../context/Search/types"
 
+let timer: NodeJS.Timeout
 const Header = () => {
   const { onChangeFilter, filter, regions } = useSearch()
 
@@ -14,6 +17,17 @@ const Header = () => {
       value: name,
     }))
   }, [regions])
+
+  const onChange = (
+    event: HeaderOnChangeEvent,
+    filterName: SearchFilterName,
+  ) => {
+    const { value } = event.target
+    clearInterval(timer)
+    timer = setTimeout(() => {
+      onChangeFilter(value, filterName)
+    }, 200)
+  }
 
   return (
     <Styled.Header>
@@ -41,22 +55,24 @@ const Header = () => {
             label="Where"
             defaultValue={filter.region?.name}
             options={formattedRegions}
-            onChange={event => onChangeFilter(event, "regions")}
+            onChange={event => onChange(event, "regions")}
           />
           <Input id="when" label="When" multiple type="date" />
           <Input
             id="who"
             label="Who"
+            defaultValue={filter.guests}
             max="30"
             min="0"
             maxLength={2}
             type="number"
+            onChange={event => onChange(event, "guests")}
           />
           <InputSelect
             label="Order"
-            defaultValue={DEFAULT_ORDER}
+            defaultValue={filter.order}
             options={ORDERS}
-            onChange={event => onChangeFilter(event, "order")}
+            onChange={event => onChange(event, "order")}
           />
         </InputGroup>
         <Input id="coupon" label="Coupon" placeholder="Got a code?" />

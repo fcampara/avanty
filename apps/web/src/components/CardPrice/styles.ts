@@ -55,6 +55,7 @@ export const Card = styled.li`
 export const CardDetail = styled.div`
   padding: 20px 30px 17px 30px;
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: space-between;
 

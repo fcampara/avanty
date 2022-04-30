@@ -1,28 +1,48 @@
 import { useRouter } from "next/router"
-import React, { ChangeEvent, useContext, useMemo } from "react"
+import React, { useContext, useMemo } from "react"
 import { DEFAULT_ORDER } from "../../constants/filters"
 import SearchContext from "./context"
-import { SearchContextProps, SearchFilterName, SearchFilterOrder, SearchProvider } from "./types"
+import {
+  SearchContextProps,
+  SearchFilterName,
+  SearchFilterOrder,
+  SearchProvider,
+} from "./types"
 
 const SearchProvider = (props: SearchProvider) => {
   const { children, regions = [] } = props
   const router = useRouter()
-  const { regionName, order } = router.query
-  const onChangeFilter = (
-    event: ChangeEvent<HTMLSelectElement>,
-    filterName: SearchFilterName,
-  ) => {
-    const { value } = event.target
-    if (filterName === "regions")
-      return router.replace(`/regions/${value}`, undefined, { shallow: true })
+  const { regionName, order, guests } = router.query
+
+  const setFilterRegion = (value: string) => {
+    if (router.pathname === "/") {
+      return router.replace(
+        {
+          pathname: `/regions/${value}`,
+          query: router.query,
+        },
+        undefined,
+        { shallow: true },
+      )
+    }
+
+    router.query.regionName = value
+    return router.replace(router, undefined, { shallow: true })
+  }
+
+  const onChangeFilter = (value: string, filterName: SearchFilterName) => {
+    if (filterName === "regions") {
+      return setFilterRegion(value)
+    }
 
     router.query[filterName] = value
     router.replace(router, undefined, { shallow: true })
   }
 
-  const region = useMemo(() => {
-    return regions.find(({ name }) => name === regionName)
-  }, [regions, regionName])
+  const region = useMemo(
+    () => regions.find(({ name }) => name === regionName),
+    [regions, regionName],
+  )
 
   return (
     <SearchContext.Provider
@@ -31,7 +51,8 @@ const SearchProvider = (props: SearchProvider) => {
         regions,
         filter: {
           region,
-          order: (order as SearchFilterOrder) || DEFAULT_ORDER
+          order: (order as SearchFilterOrder) || DEFAULT_ORDER,
+          guests: (guests as string) || "2",
         },
       }}
     >

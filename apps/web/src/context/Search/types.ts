@@ -1,17 +1,15 @@
-import { ChangeEvent, ReactNode } from "react"
+import { ReactNode } from "react"
 import { Region } from "../../services/graphql/queries/regions/types"
 
-export type SearchFilterName = "regions" | "order"
+export type SearchFilterName = "regions" | "order" | "guests"
 export type SearchFilterOrder = "RELEVANCE" | "PRICE_DESC" | "PRICE_ASC"
 
 export interface SearchContextProps {
-  onChangeFilter: (
-    event: ChangeEvent<HTMLSelectElement>,
-    filterName: SearchFilterName,
-  ) => void
+  onChangeFilter: (value: string, filterName: SearchFilterName) => void
   regions: Region[]
   filter: {
-    region?: Region,
+    region?: Region
+    guests?: string
     order: SearchFilterOrder
   }
 }

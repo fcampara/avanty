@@ -1,7 +1,7 @@
 import { CardPrice, CardPriceLoading } from "../CardPrice"
 import * as Styles from "./styles"
 import useEventListener from "../../hooks/useEventListener"
-import { useHomes } from "../../hooks/useHomes"
+import { useHomes } from "../../services/graphql/queries/homes/useHomes"
 import { useSearch } from "../../context/Search/provider"
 import { useEffect, useRef } from "react"
 
@@ -22,6 +22,7 @@ const ViewHomesList = () => {
       region: filter.region?.id,
       order: filter.order,
       page: page.current,
+      guests: Number(filter.guests),
     },
   })
 
