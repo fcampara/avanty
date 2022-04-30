@@ -48,7 +48,10 @@ const ViewHomesList = () => {
     ) {
       page.current += 1
       await fetchMore({
-        variables,
+        variables: {
+          ...variables,
+          page: page.current
+        },
       })
     }
   })
