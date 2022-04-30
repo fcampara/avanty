@@ -2,6 +2,7 @@ type UsePictureParams = {
   webp?: boolean
   width?: number
   height?: number
+  quality?: number
 }
 
 export default (url: string, params: UsePictureParams = {}) => {

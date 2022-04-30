@@ -5,7 +5,6 @@ import { Rooms, Bath, User, Pool } from "icons"
 import PriceDetail from "../PriceDetail"
 import { Separator } from "ui"
 import usePicture from "../../hooks/usePicture"
-import Loading from "./Loading"
 import { CardPriceProps } from "./types"
 
 const CardPrice = (props: CardPriceProps) => {
@@ -28,6 +27,7 @@ const CardPrice = (props: CardPriceProps) => {
     webp: true,
     width: 360,
     height: 208,
+    quality: 50,
   })
 
   return (
@@ -48,10 +48,12 @@ const CardPrice = (props: CardPriceProps) => {
               <Rooms />
               {roomsCount} Bedrooms
             </li>
-            <li>
-              <Bath />
-              {bathroomsCount} Bathrooms
-            </li>
+            {bathroomsCount && (
+              <li>
+                <Bath />
+                {bathroomsCount} Bathrooms
+              </li>
+            )}
             {hasPool && (
               <li>
                 <Pool />
