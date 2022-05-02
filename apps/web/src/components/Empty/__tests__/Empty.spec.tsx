@@ -2,7 +2,7 @@ import { ThemeProvider } from "ui/styles"
 import Empty from "../Empty"
 import { fireEvent, render } from "@testing-library/react"
 import { mockNextUseRouter } from "../../../../__mocks__/mockNextUseRouter"
-import { mockUseSearch } from "../../../../__mocks__/mockProviderSearch"
+import { mockUseSearch } from "../../../../__mocks__/mockUseSearch"
 
 const Wrapper = () => {
   return (

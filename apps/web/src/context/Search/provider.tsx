@@ -1,14 +1,9 @@
 import { useRouter } from "next/router"
-import React, { useContext, useMemo, useRef } from "react"
+import React, { useMemo, useRef } from "react"
 import { DEFAULT_ORDER } from "../../constants/filters"
 import { HomeVariablePeriod } from "../../services/graphql/homes/types"
 import SearchContext from "./context"
-import {
-  SearchContextProps,
-  SearchFilterName,
-  SearchFilterOrder,
-  SearchProvider,
-} from "./types"
+import { SearchFilterName, SearchFilterOrder, SearchProvider } from "./types"
 
 const DEFAULT_FILTER: { [k in string]: string } = {
   region: "",
@@ -101,11 +96,6 @@ const SearchProvider = (props: SearchProvider) => {
       {children}
     </SearchContext.Provider>
   )
-}
-
-export const useSearch = (): SearchContextProps => {
-  const context = useContext(SearchContext)
-  return context
 }
 
 export default SearchProvider

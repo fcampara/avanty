@@ -1,7 +1,7 @@
 import { Ilustration } from "icons"
 import { useRouter } from "next/router"
 import { Button } from "ui"
-import { useSearch } from "../../context/Search/provider"
+import { useSearch } from "../../hooks/useSearch"
 import * as Styled from "./styles"
 
 const ListCardHomeEmpty = () => {

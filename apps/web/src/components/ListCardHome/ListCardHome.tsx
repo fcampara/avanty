@@ -2,11 +2,11 @@ import { CardPrice, CardPriceLoading } from "../CardPrice"
 import * as Styles from "./styles"
 import useEventListener from "../../hooks/useEventListener"
 import { useHomes } from "../../services/graphql/homes/useHomes"
-import { useSearch } from "../../context/Search/provider"
-import { LegacyRef, useEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 import Empty from "../Empty"
 import ListCardHomeTitle from "./Title"
 import { PricingProvider } from "../../context/Pricing"
+import { useSearch } from "../../hooks/useSearch"
 
 type ScrollingElement = {
   scrollingElement: {

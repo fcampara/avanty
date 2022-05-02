@@ -2,10 +2,10 @@ import { InputGroup, InputSelect, Input, Link, Button } from "ui"
 import * as Styled from "./styles"
 import { ChevronDown, LogoText } from "icons"
 import { useEffect, useMemo } from "react"
-import { useSearch } from "../../context/Search/provider"
 import { ORDERS } from "../../constants/filters"
 import { HeaderOnChangeEvent } from "./types"
 import { SearchFilterName } from "../../context/Search/types"
+import { useSearch } from "../../hooks/useSearch"
 
 let timer: NodeJS.Timeout
 const Header = () => {
