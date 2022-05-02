@@ -31,7 +31,7 @@ describe("Components/PriceDetail/Amount", () => {
       expect(element.innerHTML).toEqual(formattedPrice)
     })
   })
-    describe("When pass props 'price' array number", () => {
+  describe("When pass props 'price' array number", () => {
     it("Must show in screen formatted price", () => {
       const prices = [datatype.number(), datatype.number()]
       const { result } = renderHook(() => useMoney(prices))
