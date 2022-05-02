@@ -1,13 +1,12 @@
 import "@emotion/jest"
 import { render } from "@testing-library/react"
 import { ThemeProvider } from "ui/styles"
-import Season from "../Season"
-import { PriceDetailSeasonProps } from "../types"
+import PriceDetailSeason, { PriceDetailSeasonProps } from "../PriceDetailSeason"
 
 const Wrapper = (props: PriceDetailSeasonProps) => {
   return (
     <ThemeProvider>
-      <Season {...props} />
+      <PriceDetailSeason {...props} />
     </ThemeProvider>
   )
 }

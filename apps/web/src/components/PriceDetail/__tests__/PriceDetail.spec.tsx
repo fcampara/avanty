@@ -3,13 +3,11 @@ import { render } from "@testing-library/react"
 import { datatype } from "faker"
 import { ThemeProvider } from "ui/styles"
 import PriceDetail from "../PriceDetail"
-import {
-  PriceDetailAmountProps,
-  PriceDetailNightProps,
-  PriceDetailPerNightProps,
-  PriceDetailProps,
-  PriceDetailSeasonProps,
-} from "../types"
+import { PriceDetailAmountProps } from "../PriceDetailAmount"
+import { PriceDetailNightProps } from "../PriceDetailNight"
+import { PriceDetailPerNightProps } from "../PriceDetailPerNight"
+import { PriceDetailSeasonProps } from "../PriceDetailSeason"
+import { PriceDetailProps } from "../types"
 
 const nightTestId = "PriceDetailNightTestId"
 const seasonTestId = "PriceDetailSeasonTestId"

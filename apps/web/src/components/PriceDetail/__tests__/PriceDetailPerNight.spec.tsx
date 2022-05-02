@@ -3,13 +3,14 @@ import { renderHook } from "@testing-library/react-hooks/native"
 import { datatype } from "faker"
 import { ThemeProvider } from "ui/styles"
 import { useMoney } from "../../../hooks"
-import PerNight from "../PerNight"
-import { PriceDetailPerNightProps } from "../types"
+import PriceDetailPerNight, {
+  PriceDetailPerNightProps,
+} from "../PriceDetailPerNight"
 
 const Wrapper = (props: PriceDetailPerNightProps) => {
   return (
     <ThemeProvider>
-      <PerNight {...props} />
+      <PriceDetailPerNight {...props} />
     </ThemeProvider>
   )
 }

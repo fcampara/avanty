@@ -3,8 +3,7 @@ import { renderHook } from "@testing-library/react-hooks/native"
 import { datatype } from "faker"
 import { ThemeProvider } from "ui/styles"
 import { useMoney } from "../../../hooks"
-import PriceDetailAmount from "../Amount"
-import { PriceDetailAmountProps } from "../types"
+import PriceDetailAmount, { PriceDetailAmountProps } from "../PriceDetailAmount"
 
 const Wrapper = (props: PriceDetailAmountProps) => {
   return (

@@ -1,5 +1,5 @@
-import useMoney from "../../hooks/useMoney"
-import { Information } from "./styles"
+import useMoney from "../../../hooks/useMoney"
+import { Information } from "../styles"
 import { PriceDetailPerNightProps } from "./types"
 
 const PriceDetailPerNight = (props: PriceDetailPerNightProps) => {

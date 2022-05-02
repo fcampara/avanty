@@ -1,4 +1,4 @@
-import useMoney from "../../hooks/useMoney"
+import useMoney from "../../../hooks/useMoney"
 import { Price } from "./styles"
 import { PriceDetailAmountProps } from "./types"
 

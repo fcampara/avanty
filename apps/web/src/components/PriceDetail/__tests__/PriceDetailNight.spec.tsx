@@ -1,13 +1,12 @@
 import { render } from "@testing-library/react"
 import { datatype } from "faker"
 import { ThemeProvider } from "ui/styles"
-import Night from "../Night"
-import { PriceDetailNightProps } from "../types"
+import PriceDetailNight, { PriceDetailNightProps } from "../PriceDetailNight"
 
 const Wrapper = (props: PriceDetailNightProps) => {
   return (
     <ThemeProvider>
-      <Night {...props} />
+      <PriceDetailNight {...props} />
     </ThemeProvider>
   )
 }

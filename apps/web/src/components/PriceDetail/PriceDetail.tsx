@@ -1,9 +1,9 @@
 import * as Styled from "./styles"
 import { PriceDetailProps } from "./types"
-import PriceDetailNight from "./Night"
-import PriceDetailSeason from "./Season"
-import PriceDetailAmount from "./Amount"
-import PriceDetailPerNight from "./PerNight"
+import PriceDetailNight from "./PriceDetailNight"
+import PriceDetailSeason from "./PriceDetailSeason"
+import PriceDetailAmount from "./PriceDetailAmount"
+import PriceDetailPerNight from "./PriceDetailPerNight"
 
 const PriceDetail = (props: PriceDetailProps) => {
   const { nights, season, price, perNight } = props

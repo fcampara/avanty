@@ -7,7 +7,6 @@ import usePicture from "../../hooks/usePicture"
 import { CardPriceProps } from "./types"
 import CardPricing from "./CardPricing/CardPricing"
 
-
 const CardPrice = (props: CardPriceProps) => {
   const {
     id,
