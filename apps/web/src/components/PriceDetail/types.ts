@@ -10,3 +10,5 @@ export interface PriceDetailSeasonProps {
   nights?: number
   season?: PriceDetailSeason
 }
+
+export type PriceDetailAmountProps = Pick<PriceDetailSeasonProps, "price">

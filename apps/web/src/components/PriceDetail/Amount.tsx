@@ -1,8 +1,8 @@
 import useMoney from "../../hooks/useMoney"
 import { Price } from "./styles"
-import { PriceDetailSeasonProps } from "./types"
+import { PriceDetailAmountProps } from "./types"
 
-const PriceDetailAmount = (props: Pick<PriceDetailSeasonProps, "price">) => {
+const PriceDetailAmount = (props: PriceDetailAmountProps) => {
   const { price } = props
   if (!price) return <></>
 
