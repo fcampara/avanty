@@ -1,10 +1,10 @@
-import { CardPrice, CardPriceLoading } from "../CardHome"
+import { CardHome, CardHomeLoading } from "../CardHome"
 import * as Styles from "./styles"
 import useEventListener from "../../hooks/useEventListener"
 import { useHomes } from "../../services/graphql/homes/useHomes"
 import { useEffect, useRef } from "react"
 import Empty from "../Empty"
-import ListCardHomeTitle from "./Title"
+import ListCardHomeTitle from "./ListCardHomeTitle"
 import { PricingProvider } from "../../context/Pricing"
 import { useSearch } from "../../hooks/useSearch"
 
@@ -16,7 +16,7 @@ type ScrollingElement = {
   }
 }
 
-const ViewHomesList = () => {
+const ListCardHome = () => {
   const { filter } = useSearch()
   const page = useRef(1)
   const tagLoadingElement = useRef<HTMLSpanElement>(null)
@@ -65,11 +65,11 @@ const ViewHomesList = () => {
     <Styles.Ul>
       <ListCardHomeTitle loading={loading} count={count} />
       {loading ? (
-        <CardPriceLoading repeat={3} />
+        <CardHomeLoading repeat={3} />
       ) : (
         <PricingProvider homes={results}>
           {results?.map(home => (
-            <CardPrice key={home.id} {...home} />
+            <CardHome key={home.id} {...home} />
           ))}
         </PricingProvider>
       )}
@@ -80,4 +80,4 @@ const ViewHomesList = () => {
   )
 }
 
-export default ViewHomesList
+export default ListCardHome
