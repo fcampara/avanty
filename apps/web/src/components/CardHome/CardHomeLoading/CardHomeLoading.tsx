@@ -1,8 +1,8 @@
 import { Skeleton } from "ui"
 import * as Styled from "../styles"
-import { CardPriceLoadingProps } from "./types"
+import { CardHomeLoadingProps } from "./types"
 
-const CardPriceLoading = (props: CardPriceLoadingProps) => {
+const CardHomeLoading = (props: CardHomeLoadingProps) => {
   const { repeat } = props
   return (
     <>
@@ -27,4 +27,4 @@ const CardPriceLoading = (props: CardPriceLoadingProps) => {
   )
 }
 
-export default CardPriceLoading
+export default CardHomeLoading

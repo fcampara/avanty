@@ -1,10 +1,10 @@
 import { usePricingHome } from "../../../context/Pricing/provider"
 import PriceDetail from "../../PriceDetail"
-import CardPriceLoading from "../CardPriceLoading"
+import CardPriceLoading from "../CardHomePricingLoading"
 import * as Styled from "../styles"
-import { CardPricingProps } from "./types"
+import { CardHomePricingProps } from "./types"
 
-const CardPricing = (props: CardPricingProps) => {
+const CardHomePricing = (props: CardHomePricingProps) => {
   const { id, seasonPricing } = props
   const { loading, pricing } = usePricingHome()
   const seasonLowerPrice = Object.values(seasonPricing?.lowSeason || {})
@@ -27,4 +27,4 @@ const CardPricing = (props: CardPricingProps) => {
   )
 }
 
-export default CardPricing
+export default CardHomePricing

@@ -1,4 +1,4 @@
-import { CardPrice, CardPriceLoading } from "../CardPrice"
+import { CardPrice, CardPriceLoading } from "../CardHome"
 import * as Styles from "./styles"
 import useEventListener from "../../hooks/useEventListener"
 import { useHomes } from "../../services/graphql/homes/useHomes"

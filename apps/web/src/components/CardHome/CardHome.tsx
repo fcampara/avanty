@@ -4,10 +4,10 @@ import * as Styled from "./styles"
 import { Rooms, Bath, User, Pool } from "icons"
 import { Separator } from "ui"
 import usePicture from "../../hooks/usePicture"
-import { CardPriceProps } from "./types"
-import CardPricing from "./CardPricing/CardPricing"
+import { CardHomeProps } from "./types"
+import CardHomePricing from "./CardHomePricing"
 
-const CardPrice = (props: CardPriceProps) => {
+const CardHome = (props: CardHomeProps) => {
   const {
     id,
     seasonPricing,
@@ -65,10 +65,10 @@ const CardPrice = (props: CardPriceProps) => {
             </li>
           </Styled.Amenities>
         </div>
-        <CardPricing id={id} seasonPricing={seasonPricing} />
+        <CardHomePricing id={id} seasonPricing={seasonPricing} />
       </Styled.CardDetail>
     </Styled.Card>
   )
 }
 
-export default memo(CardPrice)
+export default memo(CardHome)

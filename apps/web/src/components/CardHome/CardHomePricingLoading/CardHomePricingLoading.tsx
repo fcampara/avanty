@@ -1,7 +1,7 @@
 import { Skeleton } from "ui"
 import * as Styled from "../styles"
 
-const CardPriceLoading = () => {
+const CardHomePricingLoading = () => {
   return (
     <Styled.Card>
       <Styled.PriceWrapper className="av-card-price__wrapper--loading">
@@ -13,4 +13,4 @@ const CardPriceLoading = () => {
   )
 }
 
-export default CardPriceLoading
+export default CardHomePricingLoading
