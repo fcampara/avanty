@@ -1,13 +1,13 @@
 import * as Styled from "./styles"
-import { PriceDetailSeasonProps } from "./types"
+import { PriceDetailProps } from "./types"
 import PriceDetailNight from "./Night"
 import PriceDetailSeason from "./Season"
 import PriceDetailAmount from "./Amount"
 import PriceDetailPerNight from "./PerNight"
 
-const PriceDetail = (props: PriceDetailSeasonProps) => {
+const PriceDetail = (props: PriceDetailProps) => {
   const { nights, season, price, perNight } = props
-  const showPerNight = !nights && !season && !price && !perNight
+  const showPerNight = !(!nights && !season && !price && !perNight)
 
   return (
     <Styled.PriceDetail>
@@ -16,7 +16,7 @@ const PriceDetail = (props: PriceDetailSeasonProps) => {
         <PriceDetailSeason season={season} />
       </Styled.Information>
       <PriceDetailAmount price={price} />
-      {!showPerNight && <PriceDetailPerNight perNight={perNight} />}
+      {showPerNight && <PriceDetailPerNight perNight={perNight} />}
     </Styled.PriceDetail>
   )
 }

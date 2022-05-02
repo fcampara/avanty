@@ -4,13 +4,14 @@ export interface PriceDetailSeasonArrowProps {
   season: PriceDetailSeason
 }
 
-export interface PriceDetailSeasonProps {
+export interface PriceDetailProps {
   price?: number | number[]
   perNight?: number
   nights?: number
   season?: PriceDetailSeason
 }
 
-export type PriceDetailAmountProps = Pick<PriceDetailSeasonProps, "price">
-export type PriceDetailNightProps = Pick<PriceDetailSeasonProps, "nights">
-export type PriceDetailPerNightProps = Pick<PriceDetailSeasonProps, "perNight">
+export type PriceDetailAmountProps = Pick<PriceDetailProps, "price">
+export type PriceDetailNightProps = Pick<PriceDetailProps, "nights">
+export type PriceDetailPerNightProps = Pick<PriceDetailProps, "perNight">
+export type PriceDetailSeasonProps = Pick<PriceDetailProps, "season">

@@ -1,7 +1,7 @@
 import { Separator } from "ui"
-import { PriceDetailSeasonProps } from "./types"
+import { PriceDetailNightProps } from "./types"
 
-const PriceDetailNight = (props: Pick<PriceDetailSeasonProps, "nights">) => {
+const PriceDetailNight = (props: PriceDetailNightProps) => {
   const { nights } = props
 
   if (!nights) return <></>
