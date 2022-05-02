@@ -22,7 +22,7 @@ describe("Components/PriceDetail/Night", () => {
   describe("When pass props 'nights'", () => {
     it("Must return component with nights", () => {
       const nights = datatype.number()
-       const { container } = render(<Wrapper nights={nights}/>)
+      const { container } = render(<Wrapper nights={nights} />)
       expect(container.innerHTML.includes(String(nights))).toBeTruthy()
     })
   })
