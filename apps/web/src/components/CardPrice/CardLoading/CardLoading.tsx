@@ -1,5 +1,5 @@
 import { Skeleton } from "ui"
-import * as Styled from "./styles"
+import * as Styled from "../styles"
 import { CardPriceLoadingProps } from "./types"
 
 const CardPriceLoading = (props: CardPriceLoadingProps) => {

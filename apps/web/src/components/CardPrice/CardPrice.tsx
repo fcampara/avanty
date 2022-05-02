@@ -2,35 +2,11 @@ import { memo } from "react"
 import Image from "next/image"
 import * as Styled from "./styles"
 import { Rooms, Bath, User, Pool } from "icons"
-import PriceDetail from "../PriceDetail"
 import { Separator } from "ui"
 import usePicture from "../../hooks/usePicture"
 import { CardPriceProps } from "./types"
-import { usePricingHome } from "../../context/Pricing/provider"
-import CardPriceLoading from "./PriceLoading"
+import CardPricing from "./CardPricing/CardPricing"
 
-const Pricing = (props: Pick<CardPriceProps, "id" | "seasonPricing">) => {
-  const { id, seasonPricing } = props
-  const { loading, pricing } = usePricingHome()
-  const seasonLowerPrice = Object.values(seasonPricing?.lowSeason || {})
-  const seasonHighPrice = Object.values(seasonPricing?.highSeason || {})
-  const homePricing = pricing.get(id)
-  if (loading && !homePricing) return <CardPriceLoading />
-  if (!homePricing)
-    return (
-      <Styled.PriceWrapper>
-        <PriceDetail season={"low"} price={seasonLowerPrice} />
-        <PriceDetail season={"high"} price={seasonHighPrice} />
-      </Styled.PriceWrapper>
-    )
-
-  return (
-    <PriceDetail
-      nights={homePricing.numberOfNights}
-      price={homePricing.total}
-    />
-  )
-}
 
 const CardPrice = (props: CardPriceProps) => {
   const {
@@ -90,7 +66,7 @@ const CardPrice = (props: CardPriceProps) => {
             </li>
           </Styled.Amenities>
         </div>
-        <Pricing id={id} seasonPricing={seasonPricing} />
+        <CardPricing id={id} seasonPricing={seasonPricing} />
       </Styled.CardDetail>
     </Styled.Card>
   )
