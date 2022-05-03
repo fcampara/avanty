@@ -3,7 +3,7 @@ import * as Styled from "../styles"
 import { CardHomeLoadingProps } from "./types"
 
 const CardHomeLoading = (props: CardHomeLoadingProps) => {
-  const { repeat } = props
+  const { repeat = 0 } = props
   return (
     <>
       {new Array(repeat).fill(undefined).map((_, index) => (
