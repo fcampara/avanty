@@ -24,7 +24,7 @@ const SearchProvider = (props: SearchProviderProps) => {
   const { regionName, order, guests, checkIn, checkOut } = router.query
 
   const setFilterRegion = (value: string) => {
-    if (router.pathname === "/") {
+    if (router.pathname === "/homes") {
       return router.replace(
         {
           pathname: `/regions/${value}`,
