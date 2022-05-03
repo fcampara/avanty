@@ -1,10 +1,7 @@
 import styled from "@emotion/styled"
 
 export const Main = styled.main`
-  margin-left: auto;
-  margin-right: auto;
-  max-width: ${({ theme }) => theme.breakpoints.md};
   padding-top: 40px;
-  padding-left: 30px;
-  padding-right: 30px;
+  width: min(100% - 5rem, ${({ theme }) => theme.breakpoints.md});
+  margin-inline: auto;
 `

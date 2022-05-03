@@ -13,7 +13,7 @@ export const Header = styled.header`
   top: 0;
   z-index: 1;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     padding: 14px 30px;
   }
 `
