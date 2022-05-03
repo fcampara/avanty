@@ -1,2 +1,2 @@
-export { default } from "./Title"
+export { default } from "./ListCardHomeTitle"
 export * from "./types"
