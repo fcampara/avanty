@@ -51,6 +51,8 @@ export const Input = styled.input`
   font-style: normal;
   font-size: 13px;
   line-height: 18px;
+  max-width: 346px;
+  width: 100%;
   letter-spacing: -0.01em;
   color: ${({ theme }) => theme.colors.primary.medium};
   border: none;

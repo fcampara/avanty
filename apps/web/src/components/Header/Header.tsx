@@ -1,11 +1,12 @@
 import { InputGroup, InputSelect, Input, Link, Button } from "ui"
 import * as Styled from "./styles"
-import { ChevronDown, LogoText } from "icons"
+import { ChevronDown } from "icons"
 import { useEffect, useMemo } from "react"
 import { ORDERS } from "../../constants/filters"
 import { HeaderOnChangeEvent } from "./types"
 import { SearchFilterName } from "../../context/Search/types"
 import { useSearch } from "../../hooks/useSearch"
+import HeaderLogo from "./HeaderLogo"
 
 let timer: NodeJS.Timeout
 const Header = () => {
@@ -38,7 +39,7 @@ const Header = () => {
   return (
     <Styled.Header>
       <Styled.Top>
-        <LogoText />
+        <HeaderLogo />
         <Styled.Nav>
           <Link>Find Homes</Link>
           <Link>Partners</Link>
@@ -66,6 +67,7 @@ const Header = () => {
           />
           <Input
             id="whenCheckIn"
+            className="av-header__datepicker"
             name="checkIn"
             type="date"
             label="When"
@@ -74,6 +76,7 @@ const Header = () => {
           />
           <Input
             id="whenCheckOut"
+            className="av-header__datepicker"
             name="checkOut"
             type="date"
             defaultValue={filter.period?.checkOut}
@@ -98,7 +101,12 @@ const Header = () => {
             onChange={event => onChange(event, "order")}
           />
         </InputGroup>
-        <Input id="coupon" label="Coupon" placeholder="Got a code?" />
+        <Input
+          className="av-header__coupon"
+          id="coupon"
+          label="Coupon"
+          placeholder="Got a code?"
+        />
       </Styled.Form>
     </Styled.Header>
   )

@@ -3,8 +3,8 @@ import styled from "@emotion/styled"
 export const Main = styled.main`
   margin-left: auto;
   margin-right: auto;
-  max-width: 800px;
+  max-width: ${({ theme }) => theme.breakpoints.md};
   padding-top: 40px;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 30px;
+  padding-right: 30px;
 `

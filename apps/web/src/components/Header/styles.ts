@@ -12,6 +12,10 @@ export const Header = styled.header`
   position: sticky;
   top: 0;
   z-index: 1;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    padding: 14px 30px;
+  }
 `
 
 export const Top = styled.div`
@@ -32,4 +36,10 @@ export const Nav = styled.nav`
 export const Form = styled.form`
   display: flex;
   grid-gap: 10px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    .av-header__coupon, .av-header__datepicker > input {
+      width: 110px;
+    }
+  }
 `
