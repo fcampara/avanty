@@ -7,14 +7,14 @@ const dataTestId = "main-testid"
 const Wrapper = (props: HTMLAttributes<HTMLElement>) => {
   return (
     <ThemeProvider>
-      <Main data-testid={dataTestId} {...props}/>
+      <Main data-testid={dataTestId} {...props} />
     </ThemeProvider>
   )
 }
 
 describe("Components/Main", () => {
   it("Must render normally", () => {
-    const { getByTestId } = render(<Wrapper/>)
+    const { getByTestId } = render(<Wrapper />)
     const element = getByTestId(dataTestId)
     expect(element).toBeInTheDocument()
   })
