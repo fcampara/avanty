@@ -43,11 +43,13 @@ const CardHome = (props: CardHomeProps) => {
           </Styled.RegionWrapper>
           <Styled.Title>{title}</Styled.Title>
           <Styled.Amenities>
-            <li>
-              <Rooms />
-              {roomsCount} Bedrooms
-            </li>
-            {bathroomsCount && (
+            {Boolean(roomsCount) && (
+              <li>
+                <Rooms />
+                {roomsCount} Bedrooms
+              </li>
+            )}
+            {Boolean(bathroomsCount) && (
               <li>
                 <Bath />
                 {bathroomsCount} Bathrooms
@@ -59,10 +61,12 @@ const CardHome = (props: CardHomeProps) => {
                 Pool
               </li>
             )}
-            <li>
-              <User />
-              {maxOccupancy} Guests
-            </li>
+            {Boolean(maxOccupancy) && (
+              <li>
+                <User />
+                {maxOccupancy} Guests
+              </li>
+            )}
           </Styled.Amenities>
         </div>
         <CardHomePricing id={id} seasonPricing={seasonPricing} />
