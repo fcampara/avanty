@@ -11,12 +11,15 @@ export function mockUseSearch(
     clearFilters?: jest.Mock
     onChangeFilter?: jest.Mock
   } = {},
+  once = true,
 ) {
-  useSearch.mockImplementationOnce(() => ({
+  const useSearchValues = {
     clearFilters: props.clearFilters || jest.fn,
     onChangeFilter: props.onChangeFilter || jest.fn,
     regions: props.regions || [],
     filter: props.filter || {},
     setFilter: jest.fn(),
-  }))
+  }
+  if (once) return useSearch.mockImplementationOnce(() => useSearchValues)
+  return useSearch.mockImplementation(() => useSearchValues)
 }

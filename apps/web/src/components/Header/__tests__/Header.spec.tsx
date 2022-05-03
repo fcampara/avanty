@@ -38,7 +38,7 @@ describe("Components/Header", () => {
       })
       const { container } = render(<Wrapper />)
       const whereElement = container.querySelector(
-        'select[name="regions"]',
+        "select[name=\"regions\"]",
       ) as HTMLSelectElement
       const regionName = regions[0].name
       fireEvent.change(whereElement, {
@@ -61,7 +61,7 @@ describe("Components/Header", () => {
       })
       const { container } = render(<Wrapper />)
       const checkInElement = container.querySelector(
-        'input[name="checkIn"]',
+        "input[name=\"checkIn\"]",
       ) as HTMLInputElement
       const checkIn = "2022-05-02"
       fireEvent.change(checkInElement, {
@@ -84,7 +84,7 @@ describe("Components/Header", () => {
       })
       const { container } = render(<Wrapper />)
       const checkOutElement = container.querySelector(
-        'input[name="checkOut"]',
+        "input[name=\"checkOut\"]",
       ) as HTMLInputElement
       const checkOut = "2022-05-02"
       fireEvent.change(checkOutElement, {
@@ -107,7 +107,7 @@ describe("Components/Header", () => {
       })
       const { container } = render(<Wrapper />)
       const guestElement = container.querySelector(
-        'input[name="guests"]',
+        "input[name=\"guests\"]",
       ) as HTMLInputElement
       const guests = String(datatype.number(30))
       fireEvent.change(guestElement, {
@@ -130,7 +130,7 @@ describe("Components/Header", () => {
       })
       const { container } = render(<Wrapper />)
       const orderElement = container.querySelector(
-        'select[name="order"]',
+        "select[name=\"order\"]",
       ) as HTMLInputElement
       const order = ORDERS[1].value
       fireEvent.change(orderElement, {
@@ -151,7 +151,7 @@ describe("Components/Header", () => {
       })
       const { container } = render(<Wrapper />)
       const whereElement = container.querySelector(
-        'select[name="regions"]',
+        "select[name=\"regions\"]",
       ) as HTMLSelectElement
       const [firstRegion] = regions
       const filterOptionWithValue = whereElement.querySelector(
@@ -182,23 +182,23 @@ describe("Components/Header", () => {
 
       const { container } = render(<Wrapper />)
       const checkInElement = container.querySelector(
-        'input[name="checkIn"]',
+        "input[name=\"checkIn\"]",
       ) as HTMLInputElement
 
       const whereElement = container.querySelector(
-        'select[name="regions"]',
+        "select[name=\"regions\"]",
       ) as HTMLSelectElement
 
       const checkOutElement = container.querySelector(
-        'input[name="checkOut"]',
+        "input[name=\"checkOut\"]",
       ) as HTMLInputElement
 
       const guestElement = container.querySelector(
-        'input[name="guests"]',
+        "input[name=\"guests\"]",
       ) as HTMLInputElement
 
       const orderElement = container.querySelector(
-        'select[name="order"]',
+        "select[name=\"order\"]",
       ) as HTMLInputElement
 
       expect(whereElement.value).toEqual(filter.region.name)
