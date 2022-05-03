@@ -4,7 +4,7 @@ const tokens: AvantyTheme = {
   breakpoints: {
     xs: "360px",
     sm: "600px",
-    md: "720px",
+    md: "880px",
     lg: "1024px",
     xl: "1920px",
   },
