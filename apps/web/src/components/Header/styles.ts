@@ -38,7 +38,8 @@ export const Form = styled.form`
   grid-gap: 10px;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
-    .av-header__coupon, .av-header__datepicker > input {
+    .av-header__coupon,
+    .av-header__datepicker > input {
       width: 110px;
     }
   }

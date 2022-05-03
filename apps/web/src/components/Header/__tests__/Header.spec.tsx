@@ -107,7 +107,7 @@ describe("Components/Header", () => {
       })
       const { container } = render(<Wrapper />)
       const guestElement = container.querySelector(
-        "input[name=\"guests\"]",
+        "select[name=\"guests\"]",
       ) as HTMLInputElement
       const guests = String(datatype.number(30))
       fireEvent.change(guestElement, {
@@ -194,7 +194,7 @@ describe("Components/Header", () => {
       ) as HTMLInputElement
 
       const guestElement = container.querySelector(
-        "input[name=\"guests\"]",
+        "select[name=\"guests\"]",
       ) as HTMLInputElement
 
       const orderElement = container.querySelector(

@@ -2,7 +2,7 @@ import { InputGroup, InputSelect, Input, Link, Button } from "ui"
 import * as Styled from "./styles"
 import { ChevronDown } from "icons"
 import { useEffect, useMemo } from "react"
-import { ORDERS } from "../../constants/filters"
+import { GUESTS, ORDERS } from "../../constants/filters"
 import { HeaderOnChangeEvent } from "./types"
 import { SearchFilterName } from "../../context/Search/types"
 import { useSearch } from "../../hooks/useSearch"
@@ -82,15 +82,12 @@ const Header = () => {
             defaultValue={filter.period?.checkOut}
             onChange={event => onChange(event, "checkOut")}
           />
-          <Input
+          <InputSelect
             id="who"
             label="Who"
             name="guests"
+            options={GUESTS}
             defaultValue={filter.guests}
-            max="30"
-            min="0"
-            maxLength={2}
-            type="number"
             onChange={event => onChange(event, "guests")}
           />
           <InputSelect

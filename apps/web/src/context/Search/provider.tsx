@@ -1,6 +1,6 @@
 import { useRouter } from "next/router"
 import React, { useMemo, useRef } from "react"
-import { DEFAULT_ORDER } from "../../constants/filters"
+import { DEFAULT_GUESTS, DEFAULT_ORDER } from "../../constants/filters"
 import { HomeVariablePeriod } from "../../services/graphql/homes/types"
 import SearchContext from "./context"
 import {
@@ -12,7 +12,7 @@ import {
 const DEFAULT_FILTER: { [k in string]: string } = {
   region: "",
   order: DEFAULT_ORDER,
-  guests: "2",
+  guests: DEFAULT_GUESTS.value,
   checkIn: "",
   checkOut: "",
 }
@@ -62,7 +62,7 @@ const SearchProvider = (props: SearchProviderProps) => {
 
       element.value = DEFAULT_FILTER?.[filterName] || ""
     }
-    router.replace("/")
+    router.replace("/homes")
   }
 
   const setFilter = (filterName: string) => {
