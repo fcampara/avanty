@@ -38,7 +38,9 @@ jest.mock("../PriceDetailAmount", () => (props: PriceDetailAmountProps) => {
   )
 })
 jest.mock("../PriceDetailPerNight", () => (props: PriceDetailPerNightProps) => {
-  const { default: OriginalModule } = jest.requireActual("../PriceDetailPerNight")
+  const { default: OriginalModule } = jest.requireActual(
+    "../PriceDetailPerNight",
+  )
   return (
     <div data-testid={perNightTestId}>
       <OriginalModule {...props} />
