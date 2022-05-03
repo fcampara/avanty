@@ -1,4 +1,4 @@
-import { usePricingHome } from "../../../context/Pricing/provider"
+import { usePricingHome } from "../../../hooks/usePricingHome"
 import PriceDetail from "../../PriceDetail"
 import CardPriceLoading from "../CardHomePricingLoading"
 import * as Styled from "../styles"

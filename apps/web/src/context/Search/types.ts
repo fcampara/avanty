@@ -26,7 +26,7 @@ export interface SearchContextProps {
   }
 }
 
-export interface SearchProvider {
+export interface SearchProviderProps {
   regions: Region[]
   children: ReactNode
 }

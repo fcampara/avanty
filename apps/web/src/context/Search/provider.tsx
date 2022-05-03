@@ -3,7 +3,11 @@ import React, { useMemo, useRef } from "react"
 import { DEFAULT_ORDER } from "../../constants/filters"
 import { HomeVariablePeriod } from "../../services/graphql/homes/types"
 import SearchContext from "./context"
-import { SearchFilterName, SearchFilterOrder, SearchProvider } from "./types"
+import {
+  SearchFilterName,
+  SearchFilterOrder,
+  SearchProviderProps,
+} from "./types"
 
 const DEFAULT_FILTER: { [k in string]: string } = {
   region: "",
@@ -13,7 +17,7 @@ const DEFAULT_FILTER: { [k in string]: string } = {
   checkOut: "",
 }
 
-const SearchProvider = (props: SearchProvider) => {
+const SearchProvider = (props: SearchProviderProps) => {
   const { children, regions = [] } = props
   const filters = useRef(new Set<string>())
   const router = useRouter()

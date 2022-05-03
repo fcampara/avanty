@@ -16,7 +16,7 @@ type HomePriceRange = {
   maxPrice: number
 }
 
-type HomeSeasonPrice = {
+export type HomeSeasonPrice = {
   highSeason: HomePriceRange
   lowSeason: HomePriceRange
 }

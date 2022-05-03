@@ -13,32 +13,32 @@ const nightTestId = "PriceDetailNightTestId"
 const seasonTestId = "PriceDetailSeasonTestId"
 const amountTestId = "PriceDetailAmountTestId"
 const perNightTestId = "PriceDetailPerNightTestId"
-jest.mock("../Night", () => (props: PriceDetailNightProps) => {
-  const { default: OriginalModule } = jest.requireActual("../Night")
+jest.mock("../PriceDetailNight", () => (props: PriceDetailNightProps) => {
+  const { default: OriginalModule } = jest.requireActual("../PriceDetailNight")
   return (
     <div data-testid={nightTestId}>
       <OriginalModule {...props} />
     </div>
   )
 })
-jest.mock("../Season", () => (props: PriceDetailSeasonProps) => {
-  const { default: OriginalModule } = jest.requireActual("../Season")
+jest.mock("../PriceDetailSeason", () => (props: PriceDetailSeasonProps) => {
+  const { default: OriginalModule } = jest.requireActual("../PriceDetailSeason")
   return (
     <div data-testid={seasonTestId}>
       <OriginalModule {...props} />
     </div>
   )
 })
-jest.mock("../Amount", () => (props: PriceDetailAmountProps) => {
-  const { default: OriginalModule } = jest.requireActual("../Amount")
+jest.mock("../PriceDetailAmount", () => (props: PriceDetailAmountProps) => {
+  const { default: OriginalModule } = jest.requireActual("../PriceDetailAmount")
   return (
     <div data-testid={amountTestId}>
       <OriginalModule {...props} />
     </div>
   )
 })
-jest.mock("../PerNight", () => (props: PriceDetailPerNightProps) => {
-  const { default: OriginalModule } = jest.requireActual("../PerNight")
+jest.mock("../PriceDetailPerNight", () => (props: PriceDetailPerNightProps) => {
+  const { default: OriginalModule } = jest.requireActual("../PriceDetailPerNight")
   return (
     <div data-testid={perNightTestId}>
       <OriginalModule {...props} />

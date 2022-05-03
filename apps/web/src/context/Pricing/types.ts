@@ -9,7 +9,7 @@ export interface PricingContextProps {
   pricing: Map<string, PricingHome>
 }
 
-export interface PricingProvider {
+export interface PricingProviderProps {
   children: ReactNode
   homes?: Home[]
 }

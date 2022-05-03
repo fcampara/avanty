@@ -1,10 +1,10 @@
-import { PricingContextProps, PricingHome, PricingProvider } from "./types"
+import { PricingHome, PricingProviderProps } from "./types"
 import PricingContext from "./context"
-import { useContext, useEffect, useRef } from "react"
+import { useEffect, useRef } from "react"
 import { useHomesPricing } from "../../services/graphql/homesPricing/useHomes"
 import { useSearch } from "../../hooks/useSearch"
 
-const PricingProvider = (props: PricingProvider) => {
+const PricingProvider = (props: PricingProviderProps) => {
   const { children, homes } = props
   const { filter } = useSearch()
   const homePricing = useRef(new Map<string, PricingHome>())
@@ -40,11 +40,6 @@ const PricingProvider = (props: PricingProvider) => {
       {children}
     </PricingContext.Provider>
   )
-}
-
-export const usePricingHome = (): PricingContextProps => {
-  const context = useContext(PricingContext)
-  return context
 }
 
 export default PricingProvider
