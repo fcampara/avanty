@@ -8,19 +8,19 @@ const fontFamily = "Source Sans Pro"
 const GlobalStyle = css`
   @font-face {
     font-family: ${fontFamily};
-    src: url("/fonts/SourceSansPro-Light.ttf") format("truetype");
+    src: url("/homes/fonts/SourceSansPro-Light.ttf") format("truetype");
     font-weight: 300;
   }
 
   @font-face {
     font-family: ${fontFamily};
-    src: url("/fonts/SourceSansPro-Regular.ttf") format("truetype");
+    src: url("/homes/fonts/SourceSansPro-Regular.ttf") format("truetype");
     font-weight: 400;
   }
 
   @font-face {
     font-family: ${fontFamily};
-    src: url("/fonts/SourceSansPro-SemiBold.ttf") format("truetype");
+    src: url("/homes/fonts/SourceSansPro-SemiBold.ttf") format("truetype");
     font-weight: 600;
   }
 `
