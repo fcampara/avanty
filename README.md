@@ -2,7 +2,7 @@
 
 ## Packages
 
-You can check library components, library icons and configurations. Create a simple library UI with Storybook to simple documentation.
+You can check library components, library icons and configurations. Create a simple library UI with Storybook to documentation.
 
 ## Apps
 
