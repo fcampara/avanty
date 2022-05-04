@@ -41,7 +41,7 @@ const Header = () => {
       <Styled.Top>
         <HeaderLogo />
         <Styled.Nav>
-          <Link>Find Homes</Link>
+          <Link active>Find Homes</Link>
           <Link>Partners</Link>
           <Link>Company Retreats</Link>
           <Link>

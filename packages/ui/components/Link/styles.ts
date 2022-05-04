@@ -27,15 +27,19 @@ export const Link = styled.a`
     color: ${({ theme }) => theme.colors.accent.medium};
   }
 
-  &:active:after {
-    content: "";
-    position: absolute;
-    height: 1px;
-    width: 20px;
-    background-color: ${({ theme }) => theme.colors.accent.medium};
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 1px;
-    bottom: -6px;
+  &.av-link--active {
+    color: ${({ theme }) => theme.colors.accent.medium};
+
+    &:after {
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: 20px;
+      background-color: ${({ theme }) => theme.colors.accent.medium};
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 1px;
+      bottom: -6px;
+    }
   }
 `
